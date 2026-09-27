@@ -137,13 +137,19 @@ For a self-contained publish, ship `TypeFix.exe` by itself. The default layout i
 
 ### Installer
 
-Build the setup program (64-bit, self-contained, so the target PC does not need a separate .NET install). This requires [Inno Setup 6](https://jrsoftware.org/isdl.php).
+Build a separate setup program for each architecture (self-contained, so the target PC does not need a separate .NET install). This requires [Inno Setup 6](https://jrsoftware.org/isdl.php).
 
 ```powershell
 .\installer\build-installer.ps1
 ```
 
-Output: `installer\output\TypeFix-Setup.exe`
+Output:
+
+| File | Installs on |
+|---|---|
+| `installer\output\TypeFix-1.0.0-Setup-x64.exe` | 64-bit Windows |
+| `installer\output\TypeFix-1.0.0-Setup-x86.exe` | 32-bit Windows (also runs on 64-bit Windows as a 32-bit app) |
+| `installer\output\TypeFix-1.0.0-Setup-arm64.exe` | Windows on ARM |
 
 Running that setup installs TypeFix for the current user in `%LOCALAPPDATA%\Programs\TypeFix`, adds a Start menu shortcut, and registers an uninstall entry in **Settings → Apps**. The setup wizard offers the same languages as the app: English, فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, and 한국어. On the last page, **Create a desktop shortcut** and **Launch TypeFix** are both checked by default. A silent install does both unless you pass `/NODESKTOPICON` or `/NOLAUNCH`.
 
@@ -442,13 +448,19 @@ foreach ($r in 'win-x64','win-x86','win-arm64') { dotnet publish .\TypeFix.cspro
 
 ### نصب‌کننده
 
-برنامهٔ نصب را بسازید (۶۴بیتی و خودکفا، تا رایانهٔ مقصد به نصب جداگانهٔ دات‌نت نیاز نداشته باشد). برای ساخت، [Inno Setup 6](https://jrsoftware.org/isdl.php) لازم است.
+برای هر معماری یک برنامهٔ نصب جدا بسازید (خودکفا، تا رایانهٔ مقصد به نصب جداگانهٔ دات‌نت نیاز نداشته باشد). برای ساخت، [Inno Setup 6](https://jrsoftware.org/isdl.php) لازم است.
 
 ```powershell
 .\installer\build-installer.ps1
 ```
 
-خروجی: `installer\output\TypeFix-Setup.exe`
+خروجی:
+
+| فایل | نصب روی |
+|---|---|
+| `installer\output\TypeFix-1.0.0-Setup-x64.exe` | ویندوز ۶۴بیتی |
+| `installer\output\TypeFix-1.0.0-Setup-x86.exe` | ویندوز ۳۲بیتی (روی ویندوز ۶۴بیتی هم به‌صورت برنامهٔ ۳۲بیتی اجرا می‌شود) |
+| `installer\output\TypeFix-1.0.0-Setup-arm64.exe` | ویندوز روی پردازندهٔ ARM |
 
 اجرای این فایل، TypeFix را برای کاربر جاری در `%LOCALAPPDATA%\Programs\TypeFix` نصب می‌کند، میانبر منوی استارت می‌سازد، و حذف برنامه را در **Settings → Apps** ثبت می‌کند. زبان‌های نصب همان زبان‌های برنامه است: English، فارسی، العربية، Français، Italiano، Español، Türkçe، 中文 و 한국어. در صفحهٔ پایانی، **ساخت میانبر روی دسکتاپ** و **اجرای TypeFix** هر دو به‌طور پیش‌فرض تیک خورده‌اند. نصب بی‌صدا هم هر دو را انجام می‌دهد، مگر اینکه `/NODESKTOPICON` یا `/NOLAUNCH` را بدهید.
 
