@@ -8,6 +8,23 @@
 #define AppExe "TypeFix.exe"
 #define AppId "{{7E4A9C2D-1B6F-4E83-A5D0-9C8F2E6B41A3}"
 
+#ifndef Arch
+  #define Arch "x64"
+#endif
+
+#if Arch == "x64"
+  #define PublishRid "win-x64"
+  #define ArchAllowed "x64compatible"
+#elif Arch == "x86"
+  #define PublishRid "win-x86"
+  #define ArchAllowed "x86compatible"
+#elif Arch == "arm64"
+  #define PublishRid "win-arm64"
+  #define ArchAllowed "arm64"
+#else
+  #error Unknown Arch. Pass /DArch=x64, /DArch=x86, or /DArch=arm64.
+#endif
+
 [Setup]
 AppId={#AppId}
 AppName={#AppName}
@@ -21,7 +38,7 @@ DefaultDirName={localappdata}\Programs\{#AppName}
 DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
 OutputDir=output
-OutputBaseFilename=TypeFix-Setup
+OutputBaseFilename=TypeFix-{#AppVersion}-Setup-{#Arch}
 SetupIconFile=..\TypeFix.ico
 UninstallDisplayIcon={app}\{#AppExe}
 UninstallDisplayName={#AppName}
@@ -29,8 +46,10 @@ Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 PrivilegesRequired=lowest
-ArchitecturesAllowed=x64compatible
-ArchitecturesInstallIn64BitMode=x64compatible
+ArchitecturesAllowed={#ArchAllowed}
+#if Arch != "x86"
+ArchitecturesInstallIn64BitMode={#ArchAllowed}
+#endif
 MinVersion=10.0
 CloseApplications=yes
 CloseApplicationsFilter={#AppExe}
@@ -75,7 +94,7 @@ korean.LaunchProgram=TypeFix 실행
 Filename: "{app}\{#AppExe}"; Description: "{cm:LaunchProgram}"; Flags: nowait postinstall; Check: ShouldLaunch
 
 [Files]
-Source: "..\publish\win-x64\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\publish\{#PublishRid}\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#AppName}"; Filename: "{app}\{#AppExe}"; Comment: "{#AppName}"
