@@ -6,6 +6,8 @@ Select text you typed in the wrong layout and press **F10**. TypeFix copies the 
 
 [English](#english) · [فارسی](#فارسی)
 
+![TypeFix main window](docs/TypeFix-screenshot-1.png)
+
 ---
 
 ## English
