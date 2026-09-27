@@ -1,0 +1,14 @@
+{
+  "Id": "en-ar",
+  "Name": "العربية ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-Arabic",
+      "Id": "en-ar",
+      "Layout1Name": "English",
+      "Layout2Name": "العربية",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout2Chars": "ضصثقفغعهخحجدشسيبلاتنمكطئءؤرﻻىةوزظ"
+    }
+  ]
+}

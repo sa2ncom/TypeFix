@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">Smart Layout Converter</sys:String>
+    <sys:String x:Key="NavGeneral">General</sys:String>
+    <sys:String x:Key="NavTry">Try</sys:String>
+    <sys:String x:Key="NavSettings">Settings</sys:String>
+    <sys:String x:Key="NavAbout">About</sys:String>
+    <sys:String x:Key="SidebarFooter">Convert. Share. Support.</sys:String>
+
+    <sys:String x:Key="GeneralLead">Select mistyped text and press F10. TypeFix maps it with the active layout below. Only one layout is on.</sys:String>
+    <sys:String x:Key="GeneralHotkey">Press F10 to convert selected text</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">Runs in the tray</sys:String>
+    <sys:String x:Key="GeneralTrayBody">Closing the window keeps TypeFix running. Right-click the tray icon to exit. Startup and layout files are in Settings.</sys:String>
+
+    <sys:String x:Key="TryLead">Type or paste a note, then convert it. Switch swaps the two boxes so you can convert back.</sys:String>
+    <sys:String x:Key="TryOriginal">Original</sys:String>
+    <sys:String x:Key="TryPlaceholder">Type a mistyped note…  Ctrl+Enter converts</sys:String>
+    <sys:String x:Key="TryConvert">Convert</sys:String>
+    <sys:String x:Key="TrySwitch">Switch</sys:String>
+    <sys:String x:Key="TryConverted">Converted</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">Converted text appears here</sys:String>
+
+    <sys:String x:Key="SettingsLead">Choose the app language, how TypeFix starts, and which conversion layout is active.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">App language</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">The interface switches immediately. Your choice is remembered.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">Run TypeFix automatically on Windows startup</sys:String>
+    <sys:String x:Key="SettingsStartupBody">Your app will launch in the background when you start your PC.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">Conversion layouts</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">Add a JSON file for another language pair, choose which one is on, or export all of them. F10 uses only the active layout.</sys:String>
+
+    <sys:String x:Key="AboutLead">How TypeFix converts a selection when the keyboard layout is wrong.</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  Select the text</sys:String>
+    <sys:String x:Key="AboutStep1Body">Highlight the words you typed in the wrong layout.</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  Press F10</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix copies the selection, maps it, and pastes it back.</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  Layout pairs</sys:String>
+    <sys:String x:Key="AboutStep3Body">Built-in pairs, each with English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Only the selected one is on. The guide below is for adding another language.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">Make a language file</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">Each language is one JSON file. The Name field is what you see in the list.
+
+The easy path: click Export all, open the Persian file, change the name and the characters, save it under a new name, then click Import.
+
+1. Layout1Chars is the first keyboard, key by key, left to right and row by row.
+2. Layout2Chars is the other keyboard for those same physical keys. The two strings must be the same length. Index n in both strings is one key.
+3. Shift is optional. If you add Layout1ShiftChars and Layout2ShiftChars, each must match the length of its base string.
+4. Import the file from General or Settings. It becomes the active layout.
+5. Only one layout is on. F10 converts with that pair.
+6. Export all saves every layout, including ones you imported, into one zip.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">Example: Chinese ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix maps one character per key. That is how Persian, Arabic, French, Russian, or a character-based Chinese layout works. A Pinyin input method is not a key-by-key layout, so it does not belong in this file.
+
+Suppose four keys should convert like this: q → 你, w → 好, e → 世, r → 界. Then Layout1Chars is qwer and Layout2Chars is 你好世界. Both lengths are 4. Do the same for every key you care about.
+
+The box below is a full starter. Layout2Chars still matches English, so F10 would change nothing until you replace those characters with the ones your other layout types. Save it as a .json file and click Import.</sys:String>
+    <sys:String x:Key="AboutCopySample">Copy sample</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">Sample copied. Save it as a .json file, replace the characters, then click Import.</sys:String>
+
+    <sys:String x:Key="StatusReady">Ready to convert.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">Ready. F10 converts {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">Quick info</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix converts text typed in the wrong keyboard layout (for example English and Persian).</sys:String>
+    <sys:String x:Key="RailQuickHint">Select the text and press F10.</sys:String>
+    <sys:String x:Key="RailLinks">Links</sys:String>
+    <sys:String x:Key="RailWebsite">Website</sys:String>
+    <sys:String x:Key="RailSupportTitle">Support development</sys:String>
+    <sys:String x:Key="RailSupportBody">Help us keep improving TypeFix!</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">Minimize</sys:String>
+    <sys:String x:Key="TooltipMaximize">Maximize</sys:String>
+    <sys:String x:Key="TooltipRestore">Restore</sys:String>
+    <sys:String x:Key="TooltipClose">Close to tray</sys:String>
+    <sys:String x:Key="TooltipClearNotes">Clear both notes</sys:String>
+    <sys:String x:Key="TooltipConvert">Convert the original note (Ctrl+Enter)</sys:String>
+    <sys:String x:Key="TooltipSwitch">Swap the original and converted notes</sys:String>
+    <sys:String x:Key="TooltipCopyResult">Copy converted note</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">Copy website</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">Copy GitHub link</sys:String>
+    <sys:String x:Key="TooltipDonate">Open donate page</sys:String>
+
+    <sys:String x:Key="TrayOpen">Open TypeFix</sys:String>
+    <sys:String x:Key="TrayExit">Exit</sys:String>
+    <sys:String x:Key="TrayBalloon">Still running in the tray. Press F10 to convert. Right-click the icon to exit.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">Could not copy to the clipboard.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">Failed to register F10 hotkey. It may be used by another app.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">Converted the selection with {0}.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">Type a note, then click Convert.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">Text is unchanged. It may already match the keyboard layout.</sys:String>
+    <sys:String x:Key="StatusTryConverted">Converted. Switch swaps the notes so you can convert back.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">Nothing to switch yet.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">Swapped the notes. Click Convert to map the top one again.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">Nothing to copy yet. Convert a note first.</sys:String>
+    <sys:String x:Key="StatusTryCopied">Converted note copied.</sys:String>
+    <sys:String x:Key="StatusTryCleared">Cleared the try notes.</sys:String>
+    <sys:String x:Key="StatusStartupOn">Startup enabled: TypeFix will run on Windows startup.</sys:String>
+    <sys:String x:Key="StatusStartupOff">Startup disabled.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">Active layout</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 converts only this pair. Pick another layout to switch.</sys:String>
+    <sys:String x:Key="LayoutInstalled">Installed layouts</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">Built-in</sys:String>
+    <sys:String x:Key="LayoutImported">Imported</sys:String>
+    <sys:String x:Key="LayoutImport">Import</sys:String>
+    <sys:String x:Key="LayoutExportAll">Export all</sys:String>
+    <sys:String x:Key="LayoutFileHint">Each file is one language pair. About explains how to build one, including a Chinese ↔ English example. Import a .json file or a zip of them.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} pairs</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">Remove "{0}"?</sys:String>
+    <sys:String x:Key="LayoutFileFilter">Layout files (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">Zip archive (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">Import a layout JSON file or a zip of layouts</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">Export every layout to a zip file</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">Remove this layout</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 now uses {0}.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">Imported {0}. It is now the active layout.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">Imported {0} layouts. Active: {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">Imported {0}. Skipped {1} file(s).</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">Could not import. Use a JSON layout whose character strings are the same length.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} is already installed and is now active.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">Removed {0}. F10 uses {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">Could not remove that layout.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">Exported {0} layouts.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">Could not export the layouts.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">Website link copied.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">GitHub link copied.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">App language set to English.</sys:String>
+</ResourceDictionary>

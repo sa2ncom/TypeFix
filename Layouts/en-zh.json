@@ -1,0 +1,14 @@
+{
+  "Id": "en-zh",
+  "Name": "中文 ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-Chinese",
+      "Id": "en-zh",
+      "Layout1Name": "English",
+      "Layout2Name": "注音",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout2Chars": "ㄆㄊㄍㄐㄔㄗㄧㄛㄟㄣ[]ㄇㄋㄎㄑㄕㄘㄨㄜㄠㄤ'ㄈㄌㄏㄒㄖㄙㄩㄝㄡㄥ"
+    }
+  ]
+}

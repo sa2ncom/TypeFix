@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">مبدل هوشمند چیدمان صفحه‌کلید</sys:String>
+    <sys:String x:Key="NavGeneral">عمومی</sys:String>
+    <sys:String x:Key="NavTry">آزمایش</sys:String>
+    <sys:String x:Key="NavSettings">تنظیمات</sys:String>
+    <sys:String x:Key="NavAbout">درباره</sys:String>
+    <sys:String x:Key="SidebarFooter">تبدیل. اشتراک. پشتیبانی.</sys:String>
+
+    <sys:String x:Key="GeneralLead">متنی را که با چیدمان اشتباه تایپ شده انتخاب کنید و F10 را بزنید. TypeFix آن را با چیدمان فعال زیر تبدیل می‌کند. فقط یک چیدمان روشن است.</sys:String>
+    <sys:String x:Key="GeneralHotkey">برای تبدیل متن انتخاب‌شده F10 را بزنید</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">در سینی سیستم اجرا می‌شود</sys:String>
+    <sys:String x:Key="GeneralTrayBody">بستن پنجره TypeFix را باز نگه می‌دارد. برای خروج روی آیکون سینی راست‌کلیک کنید. اجرای خودکار و فایل چیدمان در تنظیمات است.</sys:String>
+
+    <sys:String x:Key="TryLead">یک یادداشت بنویسید یا بچسبانید و تبدیل کنید. جابه‌جایی جای دو کادر را عوض می‌کند تا بتوانید برگردانید.</sys:String>
+    <sys:String x:Key="TryOriginal">متن اصلی</sys:String>
+    <sys:String x:Key="TryPlaceholder">یک یادداشت با چیدمان اشتباه بنویسید…  Ctrl+Enter تبدیل می‌کند</sys:String>
+    <sys:String x:Key="TryConvert">تبدیل</sys:String>
+    <sys:String x:Key="TrySwitch">جابه‌جایی</sys:String>
+    <sys:String x:Key="TryConverted">متن تبدیل‌شده</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">متن تبدیل‌شده اینجا نشان داده می‌شود</sys:String>
+
+    <sys:String x:Key="SettingsLead">زبان برنامه، نحوه شروع TypeFix و چیدمان فعالی که F10 از آن استفاده می‌کند را از اینجا انتخاب کنید.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">زبان برنامه</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">رابط بلافاصله عوض می‌شود و انتخاب شما ذخیره می‌گردد.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">اجرای خودکار TypeFix با شروع ویندوز</sys:String>
+    <sys:String x:Key="SettingsStartupBody">برنامه هنگام روشن شدن رایانه در پس‌زمینه اجرا می‌شود.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">چیدمان‌های تبدیل</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">برای زبان دیگر یک فایل JSON اضافه کنید، مشخص کنید کدام روشن باشد، یا همه را خروجی بگیرید. F10 فقط چیدمان فعال را به کار می‌برد.</sys:String>
+
+    <sys:String x:Key="AboutLead">TypeFix وقتی چیدمان صفحه‌کلید اشتباه است، انتخاب را چطور تبدیل می‌کند.</sys:String>
+    <sys:String x:Key="AboutStep1Title">۱  متن را انتخاب کنید</sys:String>
+    <sys:String x:Key="AboutStep1Body">واژه‌هایی را که با چیدمان اشتباه تایپ کرده‌اید برجسته کنید.</sys:String>
+    <sys:String x:Key="AboutStep2Title">۲  F10 را بزنید</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix انتخاب را کپی می‌کند، نگاشت می‌کند و دوباره می‌چسباند.</sys:String>
+    <sys:String x:Key="AboutStep3Title">۳  جفت چیدمان‌ها</sys:String>
+    <sys:String x:Key="AboutStep3Body">جفت‌های داخلی، هر کدام با English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. فقط مورد انتخاب‌شده روشن است. راهنمای پایین برای افزودن زبان دیگر است.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">ساخت فایل زبان</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">هر زبان یک فایل JSON است. فیلد Name همان نامی است که در لیست می‌بینید.
+
+راه ساده: خروجی همه را بزنید، فایل فارسی را باز کنید، نام و نویسه‌ها را عوض کنید، با نام جدید ذخیره کنید و Import را بزنید.
+
+۱. Layout1Chars چیدمان اول است، کلید به کلید، از چپ به راست و ردیف به ردیف.
+۲. Layout2Chars همان کلیدهای فیزیکی در چیدمان دوم است. طول دو رشته باید برابر باشد. اندیس n در هر دو رشته یک کلید است.
+۳. لایه Shift اختیاری است. اگر Layout1ShiftChars و Layout2ShiftChars را بگذارید، طول هر کدام باید با رشتهٔ پایهٔ خودش یکی باشد.
+۴. فایل را از عمومی یا تنظیمات Import کنید. همان لحظه فعال می‌شود.
+۵. فقط یک چیدمان روشن است و F10 همان را تبدیل می‌کند.
+۶. خروجی همه، همهٔ چیدمان‌ها از جمله فایل‌هایی که وارد کرده‌اید را در یک zip ذخیره می‌کند.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">مثال: چینی ↔ انگلیسی</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix هر کلید را به یک نویسه وصل می‌کند. فارسی، عربی، فرانسه، روسی، یا چیدمان چینیِ حرف‌به‌کلید همین‌طور ساخته می‌شوند. ورودی پین‌یین چیدمان کلیدبه‌کلید نیست و داخل این فایل نمی‌آید.
+
+فرض کنید چهار کلید این‌طور باشد: q به 你، w به 好، e به 世، r به 界. آن‌وقت Layout1Chars برابر qwer است و Layout2Chars برابر 你好世界. طول هر دو ۴ است. برای بقیهٔ کلیدها همین کار را بکنید.
+
+کادر پایین یک نمونهٔ کامل است. Layout2Chars هنوز انگلیسی است، پس تا نویسه‌های چیدمان دوم را نگذارید F10 چیزی را عوض نمی‌کند. آن را در یک فایل json ذخیره کنید و Import را بزنید.</sys:String>
+    <sys:String x:Key="AboutCopySample">کپی نمونه</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">نمونه کپی شد. آن را در یک فایل json ذخیره کنید، نویسه‌ها را عوض کنید، بعد Import را بزنید.</sys:String>
+
+    <sys:String x:Key="StatusReady">آماده تبدیل.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">آماده. F10 این را تبدیل می‌کند: {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">اطلاعات سریع</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix متنی را که با چیدمان اشتباه صفحه‌کلید تایپ شده تبدیل می‌کند (مثلاً انگلیسی و فارسی).</sys:String>
+    <sys:String x:Key="RailQuickHint">متن را انتخاب کنید و F10 را بزنید.</sys:String>
+    <sys:String x:Key="RailLinks">پیوندها</sys:String>
+    <sys:String x:Key="RailWebsite">وب‌سایت</sys:String>
+    <sys:String x:Key="RailSupportTitle">حمایت از توسعه</sys:String>
+    <sys:String x:Key="RailSupportBody">کمک کنید TypeFix را بهتر کنیم.</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">کوچک کردن</sys:String>
+    <sys:String x:Key="TooltipMaximize">بزرگ کردن</sys:String>
+    <sys:String x:Key="TooltipRestore">بازگرداندن</sys:String>
+    <sys:String x:Key="TooltipClose">بستن به سینی</sys:String>
+    <sys:String x:Key="TooltipClearNotes">پاک کردن هر دو یادداشت</sys:String>
+    <sys:String x:Key="TooltipConvert">تبدیل یادداشت اصلی (Ctrl+Enter)</sys:String>
+    <sys:String x:Key="TooltipSwitch">جابه‌جایی یادداشت اصلی و تبدیل‌شده</sys:String>
+    <sys:String x:Key="TooltipCopyResult">کپی یادداشت تبدیل‌شده</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">کپی پیوند وب‌سایت</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">کپی پیوند گیت‌هاب</sys:String>
+    <sys:String x:Key="TooltipDonate">باز کردن صفحه حمایت</sys:String>
+
+    <sys:String x:Key="TrayOpen">باز کردن TypeFix</sys:String>
+    <sys:String x:Key="TrayExit">خروج</sys:String>
+    <sys:String x:Key="TrayBalloon">هنوز در سینی در حال اجراست. برای تبدیل F10 را بزنید. برای خروج روی آیکون راست‌کلیک کنید.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">کپی در کلیپ‌بورد انجام نشد.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">ثبت میانبر F10 ناموفق بود. شاید برنامه دیگری از آن استفاده می‌کند.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">انتخاب با {0} تبدیل شد.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">یک یادداشت بنویسید، سپس تبدیل را بزنید.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">متن تغییر نکرد. شاید از قبل با چیدمان صفحه‌کلید هم‌خوان باشد.</sys:String>
+    <sys:String x:Key="StatusTryConverted">تبدیل شد. جابه‌جایی جای یادداشت‌ها را عوض می‌کند تا بتوانید برگردانید.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">هنوز چیزی برای جابه‌جایی نیست.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">یادداشت‌ها جابه‌جا شدند. برای نگاشت دوباره، تبدیل را بزنید.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">هنوز چیزی برای کپی نیست. اول یک یادداشت را تبدیل کنید.</sys:String>
+    <sys:String x:Key="StatusTryCopied">یادداشت تبدیل‌شده کپی شد.</sys:String>
+    <sys:String x:Key="StatusTryCleared">یادداشت‌های آزمایش پاک شدند.</sys:String>
+    <sys:String x:Key="StatusStartupOn">اجرای خودکار روشن شد: TypeFix با شروع ویندوز اجرا می‌شود.</sys:String>
+    <sys:String x:Key="StatusStartupOff">اجرای خودکار خاموش شد.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">چیدمان فعال</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 فقط همین جفت را تبدیل می‌کند. برای عوض کردن، چیدمان دیگری را انتخاب کنید.</sys:String>
+    <sys:String x:Key="LayoutInstalled">چیدمان‌های نصب‌شده</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">داخلی</sys:String>
+    <sys:String x:Key="LayoutImported">واردشده</sys:String>
+    <sys:String x:Key="LayoutImport">وارد کردن</sys:String>
+    <sys:String x:Key="LayoutExportAll">خروجی همه</sys:String>
+    <sys:String x:Key="LayoutFileHint">هر فایل یک جفت زبان است. ساخت فایل، از جمله مثال چینی ↔ انگلیسی، در بخش درباره نوشته شده. یک فایل json یا یک zip وارد کنید.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} جفت</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">«{0}» حذف شود؟</sys:String>
+    <sys:String x:Key="LayoutFileFilter">فایل چیدمان (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">پرونده فشرده (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">وارد کردن یک فایل JSON یا zip چیدمان‌ها</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">خروجی گرفتن از همه چیدمان‌ها در یک فایل zip</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">حذف این چیدمان</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 از این به بعد {0} را به کار می‌برد.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">{0} وارد شد و الان چیدمان فعال است.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">{0} چیدمان وارد شد. فعال: {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">{0} وارد شد. {1} فایل رد شد.</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">وارد نشد. فایل باید جفت‌چیدمان JSON با رشته‌های هم‌طول باشد.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} از قبل نصب است و الان فعال شد.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">{0} حذف شد. F10 از {1} استفاده می‌کند.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">حذف این چیدمان انجام نشد.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">{0} چیدمان خروجی گرفته شد.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">خروجی چیدمان‌ها انجام نشد.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">پیوند وب‌سایت کپی شد.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">پیوند گیت‌هاب کپی شد.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">زبان برنامه فارسی شد.</sys:String>
+</ResourceDictionary>

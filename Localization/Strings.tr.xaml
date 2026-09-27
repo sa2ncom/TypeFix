@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">Klavye düzeni dönüştürücü</sys:String>
+    <sys:String x:Key="NavGeneral">Genel</sys:String>
+    <sys:String x:Key="NavTry">Dene</sys:String>
+    <sys:String x:Key="NavSettings">Ayarlar</sys:String>
+    <sys:String x:Key="NavAbout">Hakkında</sys:String>
+    <sys:String x:Key="SidebarFooter">Dönüştür. Paylaş. Destekle.</sys:String>
+
+    <sys:String x:Key="GeneralLead">Yanlış düzenle yazılmış metni seçip F10’a basın. TypeFix onu aşağıdaki etkin düzenle dönüştürür. Yalnızca bir düzen açıktır.</sys:String>
+    <sys:String x:Key="GeneralHotkey">Seçili metni dönüştürmek için F10’a basın</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">Bildirim alanında kalır</sys:String>
+    <sys:String x:Key="GeneralTrayBody">Pencereyi kapatmak TypeFix’i çalışır bırakır. Çıkmak için simgeye sağ tıklayın. Başlangıç ve düzen dosyaları Ayarlar’dadır.</sys:String>
+
+    <sys:String x:Key="TryLead">Bir not yazın veya yapıştırın, sonra dönüştürün. Değiştir iki kutuyu yer değiştirir; yönü geri alabilirsiniz.</sys:String>
+    <sys:String x:Key="TryOriginal">Özgün metin</sys:String>
+    <sys:String x:Key="TryPlaceholder">Yanlış düzenle bir not yazın…  Ctrl+Enter dönüştürür</sys:String>
+    <sys:String x:Key="TryConvert">Dönüştür</sys:String>
+    <sys:String x:Key="TrySwitch">Değiştir</sys:String>
+    <sys:String x:Key="TryConverted">Dönüştürülmüş metin</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">Dönüştürülmüş metin burada görünür</sys:String>
+
+    <sys:String x:Key="SettingsLead">Uygulama dilini, TypeFix’in nasıl başlayacağını ve hangi dönüştürme düzeninin etkin olduğunu seçin.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">Uygulama dili</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">Arayüz hemen değişir. Seçiminiz hatırlanır.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">Windows açılınca TypeFix’i başlat</sys:String>
+    <sys:String x:Key="SettingsStartupBody">Bilgisayar açıldığında uygulama arka planda başlar.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">Dönüştürme düzenleri</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">Başka bir dil çifti için JSON ekleyin, hangisinin etkin olacağını seçin veya hepsini dışa aktarın. F10 yalnızca etkin düzeni kullanır.</sys:String>
+
+    <sys:String x:Key="AboutLead">Klavye düzeni yanlışken TypeFix bir seçimi nasıl dönüştürür.</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  Metni seçin</sys:String>
+    <sys:String x:Key="AboutStep1Body">Yanlış düzenle yazdığınız sözcükleri işaretleyin.</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  F10’a basın</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix seçimi kopyalar, dönüştürür ve yapıştırır.</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  Düzen çiftleri</sys:String>
+    <sys:String x:Key="AboutStep3Body">Hazır çiftler, her biri English ile: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Yalnızca biri etkindir. Aşağıdaki kılavuz başka bir dil eklemek içindir.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">Dil dosyası oluşturma</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">Her dil bir JSON dosyasıdır. Name alanı listede görünen addır.
+
+Kısa yol: Tümünü dışa aktar’a basın, Farsça dosyayı açın, adı ve karakterleri değiştirin, yeni adla kaydedin, sonra İçe aktar’a basın.
+
+1. Layout1Chars ilk düzendir; tuş tuş, soldan sağa ve satır satır.
+2. Layout2Chars aynı fiziksel tuşların diğer düzenidir. İki dize aynı uzunlukta olmalıdır. İkisinde de n. konum tek bir tuştur.
+3. Shift katmanı isteğe bağlıdır. Layout1ShiftChars ve Layout2ShiftChars eklerseniz her biri kendi temel dizesiyle aynı uzunlukta olmalıdır.
+4. Dosyayı Genel veya Ayarlar’dan içe aktarın. Hemen etkin düzen olur.
+5. Yalnızca bir düzen etkindir. F10 bu çiftle dönüştürür.
+6. Tümünü dışa aktar, içe aktarılanlar dahil her düzeni tek bir zip’e kaydeder.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">Örnek: 中文 ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix her tuşa bir karakter bağlar. Farsça, Arapça, Fransızca, İtalyanca ve tuş başına bir karakterlik Çince düzen böyle çalışır. Pinyin girişi tuş tuş bir düzen değildir; bu dosyaya yazılmaz.
+
+Dört tuş: q → 你, w → 好, e → 世, r → 界. O zaman Layout1Chars qwer, Layout2Chars 你好世界 olur. İkisinin uzunluğu da 4’tür. Önemli her tuş için bunu tekrarlayın.
+
+Aşağıdaki kutu tam bir şablondur. Layout2Chars hâlâ İngilizcedir; bu karakterleri değiştirene kadar F10 hiçbir şeyi değiştirmez. json olarak kaydedip İçe aktar’a basın.</sys:String>
+    <sys:String x:Key="AboutCopySample">Şablonu kopyala</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">Şablon kopyalandı. json olarak kaydedin, karakterleri değiştirin, sonra İçe aktar’a basın.</sys:String>
+
+    <sys:String x:Key="StatusReady">Dönüştürmeye hazır.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">Hazır. F10 şunu dönüştürür: {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">Kısa bilgi</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix, yanlış klavye düzeniyle yazılmış metni dönüştürür.</sys:String>
+    <sys:String x:Key="RailQuickHint">Metni seçin ve F10’a basın.</sys:String>
+    <sys:String x:Key="RailLinks">Bağlantılar</sys:String>
+    <sys:String x:Key="RailWebsite">Web sitesi</sys:String>
+    <sys:String x:Key="RailSupportTitle">Geliştirmeyi destekle</sys:String>
+    <sys:String x:Key="RailSupportBody">TypeFix’i geliştirmemize yardım edin.</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">Küçült</sys:String>
+    <sys:String x:Key="TooltipMaximize">Büyüt</sys:String>
+    <sys:String x:Key="TooltipRestore">Geri yükle</sys:String>
+    <sys:String x:Key="TooltipClose">Bildirim alanına kapat</sys:String>
+    <sys:String x:Key="TooltipClearNotes">İki notu da temizle</sys:String>
+    <sys:String x:Key="TooltipConvert">Özgün notu dönüştür (Ctrl+Enter)</sys:String>
+    <sys:String x:Key="TooltipSwitch">Özgün ve dönüştürülmüş notu değiştir</sys:String>
+    <sys:String x:Key="TooltipCopyResult">Dönüştürülmüş notu kopyala</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">Web sitesi bağlantısını kopyala</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">GitHub bağlantısını kopyala</sys:String>
+    <sys:String x:Key="TooltipDonate">Destek sayfasını aç</sys:String>
+
+    <sys:String x:Key="TrayOpen">TypeFix’i aç</sys:String>
+    <sys:String x:Key="TrayExit">Çıkış</sys:String>
+    <sys:String x:Key="TrayBalloon">Bildirim alanında çalışmaya devam ediyor. Dönüştürmek için F10. Çıkmak için sağ tık.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">Panoya kopyalanamadı.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">F10 kısayolu kaydedilemedi. Başka bir uygulama kullanıyor olabilir.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">Seçim {0} ile dönüştürüldü.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">Bir not yazın, sonra Dönüştür’e basın.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">Metin değişmedi. Düzenle zaten eşleşiyor olabilir.</sys:String>
+    <sys:String x:Key="StatusTryConverted">Dönüştürüldü. Değiştir, yönü geri almak için notları yer değiştirir.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">Henüz değiştirilecek bir şey yok.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">Notlar yer değiştirdi. Üsttekini yeniden eşlemek için Dönüştür’e basın.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">Henüz kopyalanacak bir şey yok. Önce bir not dönüştürün.</sys:String>
+    <sys:String x:Key="StatusTryCopied">Dönüştürülmüş not kopyalandı.</sys:String>
+    <sys:String x:Key="StatusTryCleared">Deneme notları temizlendi.</sys:String>
+    <sys:String x:Key="StatusStartupOn">Başlangıç açık: TypeFix Windows ile açılacak.</sys:String>
+    <sys:String x:Key="StatusStartupOff">Başlangıç kapalı.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">Etkin düzen</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 yalnızca bu çifti dönüştürür. Değiştirmek için başka bir düzen seçin.</sys:String>
+    <sys:String x:Key="LayoutInstalled">Yüklü düzenler</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">Hazır</sys:String>
+    <sys:String x:Key="LayoutImported">İçe aktarıldı</sys:String>
+    <sys:String x:Key="LayoutImport">İçe aktar</sys:String>
+    <sys:String x:Key="LayoutExportAll">Tümünü dışa aktar</sys:String>
+    <sys:String x:Key="LayoutFileHint">Her dosya bir dil çiftidir. Nasıl oluşturulacağı Hakkında’da anlatılır. Bir json veya zip içe aktarın.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} çift</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">«{0}» kaldırılsın mı?</sys:String>
+    <sys:String x:Key="LayoutFileFilter">Düzen dosyaları (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">Zip arşivi (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">Düzen JSON’u veya zip’i içe aktar</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">Tüm düzenleri bir zip’e dışa aktar</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">Bu düzeni kaldır</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 artık {0} kullanıyor.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">{0} içe aktarıldı. Şimdi etkin düzen.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">{0} düzen içe aktarıldı. Etkin: {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">{0} içe aktarıldı. {1} dosya atlandı.</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">İçe aktarılamadı. JSON’da karakter dizeleri aynı uzunlukta olmalı.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} zaten yüklü ve şimdi etkin.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">{0} kaldırıldı. F10 şimdi {1} kullanıyor.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">Bu düzen kaldırılamadı.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">{0} düzen dışa aktarıldı.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">Düzenler dışa aktarılamadı.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">Web sitesi bağlantısı kopyalandı.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">GitHub bağlantısı kopyalandı.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">Uygulama dili Türkçe oldu.</sys:String>
+</ResourceDictionary>

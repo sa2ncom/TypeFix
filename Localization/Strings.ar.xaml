@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">محوّل تخطيط لوحة المفاتيح</sys:String>
+    <sys:String x:Key="NavGeneral">عام</sys:String>
+    <sys:String x:Key="NavTry">تجربة</sys:String>
+    <sys:String x:Key="NavSettings">الإعدادات</sys:String>
+    <sys:String x:Key="NavAbout">حول</sys:String>
+    <sys:String x:Key="SidebarFooter">حوّل. شارك. ادعم.</sys:String>
+
+    <sys:String x:Key="GeneralLead">حدّد النص المكتوب بتخطيط خاطئ واضغط F10. يحوّله TypeFix بالتخطيط النشط أدناه. تخطيط واحد فقط يعمل.</sys:String>
+    <sys:String x:Key="GeneralHotkey">اضغط F10 لتحويل النص المحدد</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">يعمل في منطقة الإعلام</sys:String>
+    <sys:String x:Key="GeneralTrayBody">إغلاق النافذة يُبقي TypeFix يعمل. انقر بزر الفأرة الأيمن على الأيقونة للخروج. التشغيل مع ويندوز وملفات التخطيط في الإعدادات.</sys:String>
+
+    <sys:String x:Key="TryLead">اكتب ملاحظة أو الصقها ثم حوّلها. التبديل يبادل المربعين حتى تعكس التحويل.</sys:String>
+    <sys:String x:Key="TryOriginal">النص الأصلي</sys:String>
+    <sys:String x:Key="TryPlaceholder">اكتب ملاحظة بتخطيط خاطئ…  Ctrl+Enter يحوّل</sys:String>
+    <sys:String x:Key="TryConvert">تحويل</sys:String>
+    <sys:String x:Key="TrySwitch">تبديل</sys:String>
+    <sys:String x:Key="TryConverted">النص المحوّل</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">يظهر النص المحوّل هنا</sys:String>
+
+    <sys:String x:Key="SettingsLead">اختر لغة التطبيق، وكيف يبدأ TypeFix، وأي تخطيط تحويل يعمل.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">لغة التطبيق</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">تتبدل الواجهة فورًا ويُحفظ اختيارك.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">تشغيل TypeFix تلقائيًا مع بدء ويندوز</sys:String>
+    <sys:String x:Key="SettingsStartupBody">يعمل البرنامج في الخلفية عند تشغيل الجهاز.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">تخطيطات التحويل</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">أضف ملف JSON لزوج لغة آخر، واختر أيها يعمل، أو صدّرها كلها. F10 يستخدم التخطيط النشط فقط.</sys:String>
+
+    <sys:String x:Key="AboutLead">كيف يحوّل TypeFix النص عندما يكون تخطيط لوحة المفاتيح خاطئًا.</sys:String>
+    <sys:String x:Key="AboutStep1Title">١  حدّد النص</sys:String>
+    <sys:String x:Key="AboutStep1Body">ظلّل الكلمات التي كتبتها بالتخطيط الخاطئ.</sys:String>
+    <sys:String x:Key="AboutStep2Title">٢  اضغط F10</sys:String>
+    <sys:String x:Key="AboutStep2Body">ينسخ TypeFix التحديد ويحوّله ثم يلصقه من جديد.</sys:String>
+    <sys:String x:Key="AboutStep3Title">٣  أزواج التخطيط</sys:String>
+    <sys:String x:Key="AboutStep3Body">الأزواج المضمّنة، كل منها مع English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. واحد فقط يعمل. الدليل أدناه لإضافة لغة أخرى.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">إنشاء ملف لغة</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">كل لغة ملف JSON واحد. حقل Name هو الاسم الذي يظهر في القائمة.
+
+الطريق الأقصر: اضغط تصدير الكل، افتح ملف الفارسية، غيّر الاسم والمحارف، واحفظه باسم جديد، ثم اضغط استيراد.
+
+١. Layout1Chars هو التخطيط الأول، مفتاحًا مفتاحًا، من اليسار إلى اليمين وصفًا صفًا.
+٢. Layout2Chars هو التخطيط الآخر لنفس المفاتيح. يجب أن يتساوى طول النصين. الفهرس n في الاثنين مفتاح واحد.
+٣. طبقة Shift اختيارية. إن أضفت Layout1ShiftChars و Layout2ShiftChars فيجب أن يطابق طول كل منهما نصه الأساسي.
+٤. استورد الملف من عام أو الإعدادات. يصبح التخطيط النشط فورًا.
+٥. تخطيط واحد فقط يعمل. F10 يحوّل بهذا الزوج.
+٦. تصدير الكل يحفظ كل التخطيطات، بما فيها ما استوردته، في ملف zip واحد.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">مثال: 中文 ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">يربط TypeFix كل مفتاح بمحرف واحد. هكذا تُبنى الفارسية والعربية والفرنسية والإيطالية، أو تخطيط صيني محرف لكل مفتاح. أسلوب الإدخال Pinyin ليس تخطيطًا مفتاحًا بمفتاح، فلا يوضع في هذا الملف.
+
+افترض أربعة مفاتيح: q إلى 你، و w إلى 好، و e إلى 世، و r إلى 界. عندها Layout1Chars هو qwer و Layout2Chars هو 你好世界. طول الاثنين ٤. كرّر ذلك لكل مفتاح يهمك.
+
+المربع أدناه نموذج كامل. Layout2Chars ما زال إنجليزيًا، لذلك لن يغيّر F10 شيئًا حتى تستبدل تلك المحارف. احفظه كملف json ثم اضغط استيراد.</sys:String>
+    <sys:String x:Key="AboutCopySample">نسخ النموذج</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">نُسخ النموذج. احفظه كملف json، واستبدل المحارف، ثم اضغط استيراد.</sys:String>
+
+    <sys:String x:Key="StatusReady">جاهز للتحويل.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">جاهز. يحوّل F10 هذا: {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">معلومات سريعة</sys:String>
+    <sys:String x:Key="RailQuickBody">يحوّل TypeFix النص المكتوب بتخطيط لوحة مفاتيح خاطئ.</sys:String>
+    <sys:String x:Key="RailQuickHint">حدّد النص واضغط F10.</sys:String>
+    <sys:String x:Key="RailLinks">روابط</sys:String>
+    <sys:String x:Key="RailWebsite">الموقع</sys:String>
+    <sys:String x:Key="RailSupportTitle">ادعم التطوير</sys:String>
+    <sys:String x:Key="RailSupportBody">ساعدونا على تحسين TypeFix.</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">تصغير</sys:String>
+    <sys:String x:Key="TooltipMaximize">تكبير</sys:String>
+    <sys:String x:Key="TooltipRestore">استعادة</sys:String>
+    <sys:String x:Key="TooltipClose">إغلاق إلى منطقة الإعلام</sys:String>
+    <sys:String x:Key="TooltipClearNotes">مسح الملاحظتين</sys:String>
+    <sys:String x:Key="TooltipConvert">تحويل الملاحظة الأصلية (Ctrl+Enter)</sys:String>
+    <sys:String x:Key="TooltipSwitch">تبديل الملاحظة الأصلية والمحوّلة</sys:String>
+    <sys:String x:Key="TooltipCopyResult">نسخ الملاحظة المحوّلة</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">نسخ رابط الموقع</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">نسخ رابط GitHub</sys:String>
+    <sys:String x:Key="TooltipDonate">فتح صفحة الدعم</sys:String>
+
+    <sys:String x:Key="TrayOpen">فتح TypeFix</sys:String>
+    <sys:String x:Key="TrayExit">خروج</sys:String>
+    <sys:String x:Key="TrayBalloon">ما زال يعمل في منطقة الإعلام. اضغط F10 للتحويل. انقر بزر الفأرة الأيمن للخروج.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">تعذر النسخ إلى الحافظة.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">فشل تسجيل اختصار F10. قد يستخدمه برنامج آخر.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">حُوّل التحديد بـ {0}.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">اكتب ملاحظة ثم اضغط تحويل.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">لم يتغير النص. ربما يطابق التخطيط أصلًا.</sys:String>
+    <sys:String x:Key="StatusTryConverted">تم التحويل. التبديل يبادل الملاحظتين لتعكس الاتجاه.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">لا شيء للتبديل بعد.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">تبادلت الملاحظتان. اضغط تحويل لربط العليا من جديد.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">لا شيء للنسخ بعد. حوّل ملاحظة أولًا.</sys:String>
+    <sys:String x:Key="StatusTryCopied">نُسخت الملاحظة المحوّلة.</sys:String>
+    <sys:String x:Key="StatusTryCleared">مُسحت ملاحظات التجربة.</sys:String>
+    <sys:String x:Key="StatusStartupOn">التشغيل التلقائي مفعّل: يعمل TypeFix مع بدء ويندوز.</sys:String>
+    <sys:String x:Key="StatusStartupOff">التشغيل التلقائي متوقف.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">التخطيط النشط</sys:String>
+    <sys:String x:Key="LayoutActiveHint">يحوّل F10 هذا الزوج فقط. اختر تخطيطًا آخر للتبديل.</sys:String>
+    <sys:String x:Key="LayoutInstalled">التخطيطات المثبّتة</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">مضمّن</sys:String>
+    <sys:String x:Key="LayoutImported">مستورد</sys:String>
+    <sys:String x:Key="LayoutImport">استيراد</sys:String>
+    <sys:String x:Key="LayoutExportAll">تصدير الكل</sys:String>
+    <sys:String x:Key="LayoutFileHint">كل ملف زوج لغة واحد. تشرح صفحة حول طريقة إنشائه. استورد ملف json أو zip.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} أزواج</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">حذف «{0}»؟</sys:String>
+    <sys:String x:Key="LayoutFileFilter">ملفات التخطيط (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">أرشيف zip ‏(*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">استيراد ملف JSON أو zip للتخطيطات</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">تصدير كل التخطيطات إلى ملف zip</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">حذف هذا التخطيط</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">صار F10 يستخدم {0}.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">استُورد {0} وهو الآن التخطيط النشط.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">استُورد {0} تخطيطات. النشط: {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">استُورد {0}. تُخطي {1} ملفًا.</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">تعذر الاستيراد. استخدم JSON فيه نصوص محارف متساوية الطول.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} مثبّت أصلًا وهو الآن نشط.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">حُذف {0}. يستخدم F10 الآن {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">تعذر حذف هذا التخطيط.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">صُدّر {0} تخطيطات.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">تعذر تصدير التخطيطات.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">نُسخ رابط الموقع.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">نُسخ رابط GitHub.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">صارت لغة التطبيق العربية.</sys:String>
+</ResourceDictionary>

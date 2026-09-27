@@ -1,0 +1,16 @@
+{
+  "Id": "en-it",
+  "Name": "Italiano ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-Italian",
+      "Id": "en-it",
+      "Layout1Name": "English",
+      "Layout2Name": "Italiano",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout1ShiftChars": "QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>?",
+      "Layout2Chars": "qwertyuiopè+asdfghjklòàzxcvbnm,.-",
+      "Layout2ShiftChars": "QWERTYUIOPé*ASDFGHJKLç°ZXCVBNM;:_"
+    }
+  ]
+}

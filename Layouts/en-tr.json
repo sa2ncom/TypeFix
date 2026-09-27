@@ -1,0 +1,16 @@
+{
+  "Id": "en-tr",
+  "Name": "Türkçe ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-Turkish",
+      "Id": "en-tr",
+      "Layout1Name": "English",
+      "Layout2Name": "Türkçe",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout1ShiftChars": "QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>?",
+      "Layout2Chars": "qwertyuıopğüasdfghjklşizxcvbnmöç.",
+      "Layout2ShiftChars": "QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ:"
+    }
+  ]
+}

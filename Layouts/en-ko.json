@@ -1,0 +1,16 @@
+{
+  "Id": "en-ko",
+  "Name": "한국어 ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-Korean",
+      "Id": "en-ko",
+      "Layout1Name": "English",
+      "Layout2Name": "한국어",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout1ShiftChars": "QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>?",
+      "Layout2Chars": "ㅂㅈㄷㄱㅅㅛㅕㅑㅐㅔ[]ㅁㄴㅇㄹㅎㅗㅓㅏㅣ;'ㅋㅌㅊㅍㅠㅜㅡ,./",
+      "Layout2ShiftChars": "ㅃㅉㄸㄲㅆㅛㅕㅑㅒㅖ{}ㅁㄴㅇㄹㅎㅗㅓㅏㅣ:\"ㅋㅌㅊㅍㅠㅜㅡ<>?"
+    }
+  ]
+}

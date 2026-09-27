@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">Convertitore di layout</sys:String>
+    <sys:String x:Key="NavGeneral">Generale</sys:String>
+    <sys:String x:Key="NavTry">Prova</sys:String>
+    <sys:String x:Key="NavSettings">Impostazioni</sys:String>
+    <sys:String x:Key="NavAbout">Informazioni</sys:String>
+    <sys:String x:Key="SidebarFooter">Converti. Condividi. Sostieni.</sys:String>
+
+    <sys:String x:Key="GeneralLead">Seleziona il testo scritto con il layout sbagliato e premi F10. TypeFix lo converte con il layout attivo qui sotto. Un solo layout è acceso.</sys:String>
+    <sys:String x:Key="GeneralHotkey">Premi F10 per convertire il testo selezionato</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">Resta nell’area di notifica</sys:String>
+    <sys:String x:Key="GeneralTrayBody">Chiudere la finestra lascia TypeFix in esecuzione. Clic destro sull’icona per uscire. Avvio e file di layout sono in Impostazioni.</sys:String>
+
+    <sys:String x:Key="TryLead">Scrivi o incolla una nota, poi convertila. Scambia inverte le due caselle per tornare indietro.</sys:String>
+    <sys:String x:Key="TryOriginal">Testo originale</sys:String>
+    <sys:String x:Key="TryPlaceholder">Scrivi una nota con il layout sbagliato…  Ctrl+Invio converte</sys:String>
+    <sys:String x:Key="TryConvert">Converti</sys:String>
+    <sys:String x:Key="TrySwitch">Scambia</sys:String>
+    <sys:String x:Key="TryConverted">Testo convertito</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">Il testo convertito appare qui</sys:String>
+
+    <sys:String x:Key="SettingsLead">Scegli la lingua dell’app, come si avvia TypeFix e quale layout di conversione è attivo.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">Lingua dell’applicazione</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">L’interfaccia cambia subito. La scelta viene ricordata.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">Avvia TypeFix all’avvio di Windows</sys:String>
+    <sys:String x:Key="SettingsStartupBody">L’app parte in background quando accendi il PC.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">Layout di conversione</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">Aggiungi un JSON per un’altra coppia, scegli quale è attiva oppure esportale tutte. F10 usa solo il layout attivo.</sys:String>
+
+    <sys:String x:Key="AboutLead">Come TypeFix converte una selezione quando il layout della tastiera è sbagliato.</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  Seleziona il testo</sys:String>
+    <sys:String x:Key="AboutStep1Body">Evidenzia le parole scritte con il layout sbagliato.</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  Premi F10</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix copia la selezione, la converte e la incolla.</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  Coppie di layout</sys:String>
+    <sys:String x:Key="AboutStep3Body">Coppie incluse, ognuna con English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Solo una è attiva. La guida sotto serve per aggiungerne un’altra.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">Creare un file di lingua</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">Ogni lingua è un file JSON. Il campo Name è il nome che vedi nell’elenco.
+
+La via breve: fai clic su Esporta tutto, apri il file persiano, cambia nome e caratteri, salvalo con un altro nome e fai clic su Importa.
+
+1. Layout1Chars è il primo layout, tasto per tasto, da sinistra a destra e riga per riga.
+2. Layout2Chars è l’altro layout per gli stessi tasti fisici. Le due stringhe devono avere la stessa lunghezza. L’indice n in entrambe è un solo tasto.
+3. Il livello Maiusc è facoltativo. Se aggiungi Layout1ShiftChars e Layout2ShiftChars, ognuna deve avere la lunghezza della sua stringa di base.
+4. Importa il file da Generale o Impostazioni. Diventa subito il layout attivo.
+5. Un solo layout è attivo. F10 converte con quella coppia.
+6. Esporta tutto salva tutti i layout, compresi quelli importati, in un solo zip.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">Esempio: 中文 ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix associa un carattere a ogni tasto. Così funzionano persiano, arabo, francese, italiano o un layout cinese carattere per tasto. L’inserimento Pinyin non è un layout tasto per tasto e non va in questo file.
+
+Quattro tasti: q diventa 你, w → 好, e → 世, r → 界. Allora Layout1Chars è qwer e Layout2Chars è 你好世界. Entrambe le lunghezze sono 4. Ripeti per ogni tasto che ti serve.
+
+Il riquadro sotto è un modello completo. Layout2Chars è ancora inglese, quindi F10 non cambia nulla finché non sostituisci quei caratteri. Salvalo come json e fai clic su Importa.</sys:String>
+    <sys:String x:Key="AboutCopySample">Copia il modello</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">Modello copiato. Salvalo come json, sostituisci i caratteri e fai clic su Importa.</sys:String>
+
+    <sys:String x:Key="StatusReady">Pronto a convertire.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">Pronto. F10 converte {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">In breve</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix converte il testo scritto con il layout di tastiera sbagliato.</sys:String>
+    <sys:String x:Key="RailQuickHint">Seleziona il testo e premi F10.</sys:String>
+    <sys:String x:Key="RailLinks">Collegamenti</sys:String>
+    <sys:String x:Key="RailWebsite">Sito web</sys:String>
+    <sys:String x:Key="RailSupportTitle">Sostieni lo sviluppo</sys:String>
+    <sys:String x:Key="RailSupportBody">Aiutaci a migliorare TypeFix.</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">Riduci</sys:String>
+    <sys:String x:Key="TooltipMaximize">Ingrandisci</sys:String>
+    <sys:String x:Key="TooltipRestore">Ripristina</sys:String>
+    <sys:String x:Key="TooltipClose">Chiudi nell’area di notifica</sys:String>
+    <sys:String x:Key="TooltipClearNotes">Cancella entrambe le note</sys:String>
+    <sys:String x:Key="TooltipConvert">Converti la nota originale (Ctrl+Invio)</sys:String>
+    <sys:String x:Key="TooltipSwitch">Scambia nota originale e convertita</sys:String>
+    <sys:String x:Key="TooltipCopyResult">Copia la nota convertita</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">Copia il link del sito</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">Copia il link GitHub</sys:String>
+    <sys:String x:Key="TooltipDonate">Apri la pagina di sostegno</sys:String>
+
+    <sys:String x:Key="TrayOpen">Apri TypeFix</sys:String>
+    <sys:String x:Key="TrayExit">Esci</sys:String>
+    <sys:String x:Key="TrayBalloon">È ancora nell’area di notifica. Premi F10 per convertire. Clic destro per uscire.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">Impossibile copiare negli appunti.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">Impossibile registrare F10. Forse lo usa un’altra app.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">Selezione convertita con {0}.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">Scrivi una nota, poi fai clic su Converti.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">Il testo non è cambiato. Forse corrisponde già al layout.</sys:String>
+    <sys:String x:Key="StatusTryConverted">Convertito. Scambia inverte le note per tornare indietro.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">Non c’è ancora niente da scambiare.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">Note scambiate. Fai clic su Converti per mappare di nuovo quella in alto.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">Non c’è ancora niente da copiare. Converti prima una nota.</sys:String>
+    <sys:String x:Key="StatusTryCopied">Nota convertita copiata.</sys:String>
+    <sys:String x:Key="StatusTryCleared">Note di prova cancellate.</sys:String>
+    <sys:String x:Key="StatusStartupOn">Avvio attivo: TypeFix partirà con Windows.</sys:String>
+    <sys:String x:Key="StatusStartupOff">Avvio disattivato.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">Layout attivo</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 converte solo questa coppia. Scegline un altro per cambiare.</sys:String>
+    <sys:String x:Key="LayoutInstalled">Layout installati</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">Incluso</sys:String>
+    <sys:String x:Key="LayoutImported">Importato</sys:String>
+    <sys:String x:Key="LayoutImport">Importa</sys:String>
+    <sys:String x:Key="LayoutExportAll">Esporta tutto</sys:String>
+    <sys:String x:Key="LayoutFileHint">Ogni file è una coppia di lingue. Informazioni spiega come crearlo. Importa un json o uno zip.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} coppie</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">Rimuovere «{0}»?</sys:String>
+    <sys:String x:Key="LayoutFileFilter">File di layout (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">Archivio zip (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">Importa un JSON o uno zip di layout</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">Esporta tutti i layout in uno zip</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">Rimuovi questo layout</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 ora usa {0}.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">{0} importato. Ora è il layout attivo.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">Importati {0} layout. Attivo: {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">Importati {0}. Ignorati {1} file.</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">Importazione non riuscita. Il JSON deve avere stringhe di caratteri della stessa lunghezza.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} è già installato ed è ora attivo.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">{0} rimosso. F10 usa {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">Impossibile rimuovere questo layout.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">Esportati {0} layout.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">Impossibile esportare i layout.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">Link del sito copiato.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">Link GitHub copiato.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">Lingua dell’applicazione: italiano.</sys:String>
+</ResourceDictionary>

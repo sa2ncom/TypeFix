@@ -1,0 +1,10 @@
+/publish/
+/bin/
+/obj/
+/installer/output/
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates

@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">键盘布局转换</sys:String>
+    <sys:String x:Key="NavGeneral">常规</sys:String>
+    <sys:String x:Key="NavTry">试用</sys:String>
+    <sys:String x:Key="NavSettings">设置</sys:String>
+    <sys:String x:Key="NavAbout">关于</sys:String>
+    <sys:String x:Key="SidebarFooter">转换。分享。支持。</sys:String>
+
+    <sys:String x:Key="GeneralLead">选中用错键盘布局输入的文字，按 F10。TypeFix 会用下方当前布局转换它。一次只能启用一种布局。</sys:String>
+    <sys:String x:Key="GeneralHotkey">按 F10 转换选中的文字</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">留在通知区域</sys:String>
+    <sys:String x:Key="GeneralTrayBody">关闭窗口后 TypeFix 仍在运行。右键图标可退出。开机启动和布局文件在设置里。</sys:String>
+
+    <sys:String x:Key="TryLead">输入或粘贴一段文字，然后转换。对调会交换两个框，方便换回方向。</sys:String>
+    <sys:String x:Key="TryOriginal">原文</sys:String>
+    <sys:String x:Key="TryPlaceholder">用错误布局写一段文字…  Ctrl+Enter 转换</sys:String>
+    <sys:String x:Key="TryConvert">转换</sys:String>
+    <sys:String x:Key="TrySwitch">对调</sys:String>
+    <sys:String x:Key="TryConverted">转换结果</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">转换后的文字显示在这里</sys:String>
+
+    <sys:String x:Key="SettingsLead">选择界面语言、TypeFix 如何启动，以及当前使用哪一种转换布局。</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">界面语言</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">界面会立刻切换，并记住你的选择。</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">Windows 启动时运行 TypeFix</sys:String>
+    <sys:String x:Key="SettingsStartupBody">开机后程序在后台启动。</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">转换布局</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">添加 JSON 文件作为另一组语言，选择哪一组生效，或全部导出。F10 只用当前布局。</sys:String>
+
+    <sys:String x:Key="AboutLead">键盘布局选错时，TypeFix 如何转换选中的文字。</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  选中文字</sys:String>
+    <sys:String x:Key="AboutStep1Body">标出用错布局输入的词。</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  按 F10</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix 复制选区、转换后再粘贴回去。</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  布局配对</sys:String>
+    <sys:String x:Key="AboutStep3Body">内置配对，每组都与 English 对应：فارسی、العربية、Français、Italiano、Español、Türkçe、中文、한국어。一次只启用一组。下面的说明用来添加其他语言。</sys:String>
+    <sys:String x:Key="AboutGuideTitle">制作语言文件</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">每种语言是一个 JSON 文件。Name 字段就是列表里显示的名称。
+
+最快的做法：点“全部导出”，打开波斯语文件，改名称和字符，另存为新文件，再点“导入”。
+
+1. Layout1Chars 是第一种布局，按键从左到右、逐行填写。
+2. Layout2Chars 是同一批物理按键的另一种布局。两段文字长度必须相同。两边第 n 个字符是同一个键。
+3. Shift 层可选。如果填写 Layout1ShiftChars 和 Layout2ShiftChars，每段必须与对应的基本字符串等长。
+4. 从“常规”或“设置”导入。它会立刻成为当前布局。
+5. 一次只启用一种布局。F10 用这一对转换。
+6. “全部导出”把每种布局（包括导入的）保存到一个 zip。</sys:String>
+    <sys:String x:Key="AboutExampleTitle">示例：中文 ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix 让每个键对应一个字符。波斯语、阿拉伯语、法语、意大利语，以及一键一字的中文布局都是这样。拼音输入法不是按键对照，不能写进这个文件。内置的中文用的是注音键位。
+
+四个键：q 对应 你，w → 好，e → 世，r → 界。那么 Layout1Chars 是 qwer，Layout2Chars 是 你好世界。两边长度都是 4。需要的每个键都照这样写。
+
+下面的框是完整模板。Layout2Chars 仍是英文，所以在你替换这些字符之前，F10 不会改变任何内容。存成 json 再点“导入”。</sys:String>
+    <sys:String x:Key="AboutCopySample">复制模板</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">已复制模板。存成 json，替换字符，再点“导入”。</sys:String>
+
+    <sys:String x:Key="StatusReady">可以转换。</sys:String>
+    <sys:String x:Key="StatusReadyLayout">就绪。F10 转换：{0}。</sys:String>
+    <sys:String x:Key="RailQuickInfo">简要说明</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix 转换用错键盘布局输入的文字。</sys:String>
+    <sys:String x:Key="RailQuickHint">选中文字并按 F10。</sys:String>
+    <sys:String x:Key="RailLinks">链接</sys:String>
+    <sys:String x:Key="RailWebsite">网站</sys:String>
+    <sys:String x:Key="RailSupportTitle">支持开发</sys:String>
+    <sys:String x:Key="RailSupportBody">帮助我们改进 TypeFix。</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">最小化</sys:String>
+    <sys:String x:Key="TooltipMaximize">最大化</sys:String>
+    <sys:String x:Key="TooltipRestore">还原</sys:String>
+    <sys:String x:Key="TooltipClose">关闭到通知区域</sys:String>
+    <sys:String x:Key="TooltipClearNotes">清空两段文字</sys:String>
+    <sys:String x:Key="TooltipConvert">转换原文（Ctrl+Enter）</sys:String>
+    <sys:String x:Key="TooltipSwitch">对调原文和转换结果</sys:String>
+    <sys:String x:Key="TooltipCopyResult">复制转换结果</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">复制网站链接</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">复制 GitHub 链接</sys:String>
+    <sys:String x:Key="TooltipDonate">打开支持页面</sys:String>
+
+    <sys:String x:Key="TrayOpen">打开 TypeFix</sys:String>
+    <sys:String x:Key="TrayExit">退出</sys:String>
+    <sys:String x:Key="TrayBalloon">仍在通知区域运行。按 F10 转换。右键退出。</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">无法复制到剪贴板。</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">无法注册 F10 快捷键。可能已被其他程序占用。</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">已用 {0} 转换选区。</sys:String>
+    <sys:String x:Key="StatusTryEmpty">先写一段文字，再点“转换”。</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">文字没有变化。它可能已经符合当前布局。</sys:String>
+    <sys:String x:Key="StatusTryConverted">已转换。对调会交换两段文字，方便换回方向。</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">还没有可对调的内容。</sys:String>
+    <sys:String x:Key="StatusTrySwapped">两段文字已对调。点“转换”重新映射上面一段。</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">还没有可复制的内容。请先转换一段文字。</sys:String>
+    <sys:String x:Key="StatusTryCopied">已复制转换结果。</sys:String>
+    <sys:String x:Key="StatusTryCleared">试用文字已清空。</sys:String>
+    <sys:String x:Key="StatusStartupOn">已开启开机启动：TypeFix 会随 Windows 启动。</sys:String>
+    <sys:String x:Key="StatusStartupOff">已关闭开机启动。</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">当前布局</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 只转换这一对。要更换，请选择另一种布局。</sys:String>
+    <sys:String x:Key="LayoutInstalled">已安装的布局</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">内置</sys:String>
+    <sys:String x:Key="LayoutImported">已导入</sys:String>
+    <sys:String x:Key="LayoutImport">导入</sys:String>
+    <sys:String x:Key="LayoutExportAll">全部导出</sys:String>
+    <sys:String x:Key="LayoutFileHint">每个文件是一组语言。制作方法见“关于”。可导入 json 或 zip。</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} 组</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">删除“{0}”？</sys:String>
+    <sys:String x:Key="LayoutFileFilter">布局文件 (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">Zip 压缩包 (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">导入布局 JSON 或 zip</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">把全部布局导出为一个 zip</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">删除此布局</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 现在使用 {0}。</sys:String>
+    <sys:String x:Key="StatusLayoutImported">已导入 {0}，并设为当前布局。</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">已导入 {0} 个布局。当前：{1}。</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">已导入 {0}。跳过 {1} 个文件。</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">无法导入。JSON 里的字符字符串长度必须相同。</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} 已经安装，并已设为当前布局。</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">已删除 {0}。F10 现在使用 {1}。</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">无法删除此布局。</sys:String>
+    <sys:String x:Key="StatusLayoutExported">已导出 {0} 个布局。</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">无法导出布局。</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">已复制网站链接。</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">已复制 GitHub 链接。</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">界面语言已设为中文。</sys:String>
+</ResourceDictionary>

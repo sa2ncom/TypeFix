@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">Conversor de distribución</sys:String>
+    <sys:String x:Key="NavGeneral">General</sys:String>
+    <sys:String x:Key="NavTry">Probar</sys:String>
+    <sys:String x:Key="NavSettings">Ajustes</sys:String>
+    <sys:String x:Key="NavAbout">Acerca de</sys:String>
+    <sys:String x:Key="SidebarFooter">Convertir. Compartir. Apoyar.</sys:String>
+
+    <sys:String x:Key="GeneralLead">Selecciona el texto mal escrito y pulsa F10. TypeFix lo convierte con la distribución activa de abajo. Solo una distribución está encendida.</sys:String>
+    <sys:String x:Key="GeneralHotkey">Pulsa F10 para convertir el texto seleccionado</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">Sigue en la bandeja</sys:String>
+    <sys:String x:Key="GeneralTrayBody">Cerrar la ventana deja TypeFix en ejecución. Clic derecho en el icono para salir. El inicio y los archivos de distribución están en Ajustes.</sys:String>
+
+    <sys:String x:Key="TryLead">Escribe o pega una nota y conviértela. Cambiar intercambia las dos cajas para volver atrás.</sys:String>
+    <sys:String x:Key="TryOriginal">Texto original</sys:String>
+    <sys:String x:Key="TryPlaceholder">Escribe una nota con la distribución equivocada…  Ctrl+Enter convierte</sys:String>
+    <sys:String x:Key="TryConvert">Convertir</sys:String>
+    <sys:String x:Key="TrySwitch">Cambiar</sys:String>
+    <sys:String x:Key="TryConverted">Texto convertido</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">El texto convertido aparece aquí</sys:String>
+
+    <sys:String x:Key="SettingsLead">Elige el idioma de la aplicación, cómo arranca TypeFix y qué distribución de conversión está activa.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">Idioma de la aplicación</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">La interfaz cambia al momento. Tu elección se recuerda.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">Abrir TypeFix al iniciar Windows</sys:String>
+    <sys:String x:Key="SettingsStartupBody">La aplicación se inicia en segundo plano al encender el equipo.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">Distribuciones de conversión</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">Añade un JSON para otro par de idiomas, elige cuál está activo o expórtalos todos. F10 solo usa la distribución activa.</sys:String>
+
+    <sys:String x:Key="AboutLead">Cómo convierte TypeFix una selección cuando la distribución del teclado es incorrecta.</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  Selecciona el texto</sys:String>
+    <sys:String x:Key="AboutStep1Body">Resalta las palabras escritas con la distribución equivocada.</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  Pulsa F10</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix copia la selección, la convierte y la pega.</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  Pares de distribución</sys:String>
+    <sys:String x:Key="AboutStep3Body">Pares incluidos, cada uno con English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Solo uno está activo. La guía de abajo sirve para añadir otro idioma.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">Crear un archivo de idioma</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">Cada idioma es un archivo JSON. El campo Name es el nombre que ves en la lista.
+
+El camino corto: pulsa Exportar todo, abre el archivo persa, cambia el nombre y los caracteres, guárdalo con otro nombre y pulsa Importar.
+
+1. Layout1Chars es la primera distribución, tecla por tecla, de izquierda a derecha y fila por fila.
+2. Layout2Chars es la otra distribución de esas mismas teclas físicas. Las dos cadenas deben tener la misma longitud. El índice n de ambas es una tecla.
+3. La capa Mayús es opcional. Si añades Layout1ShiftChars y Layout2ShiftChars, cada una debe medir lo mismo que su cadena base.
+4. Importa el archivo desde General o Ajustes. Pasa a ser la distribución activa.
+5. Solo una distribución está activa. F10 convierte con ese par.
+6. Exportar todo guarda todas las distribuciones, incluidas las importadas, en un zip.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">Ejemplo: 中文 ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix asigna un carácter a cada tecla. Así funcionan el persa, el árabe, el francés, el italiano o una distribución china de un carácter por tecla. El método Pinyin no es una distribución tecla a tecla y no va en este archivo.
+
+Cuatro teclas: q pasa a 你, w → 好, e → 世, r → 界. Entonces Layout1Chars es qwer y Layout2Chars es 你好世界. Ambas longitudes son 4. Repítelo con cada tecla que te importe.
+
+El cuadro de abajo es una plantilla completa. Layout2Chars sigue en inglés, así que F10 no cambia nada hasta que sustituyas esos caracteres. Guárdalo como json y pulsa Importar.</sys:String>
+    <sys:String x:Key="AboutCopySample">Copiar plantilla</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">Plantilla copiada. Guárdala como json, sustituye los caracteres y pulsa Importar.</sys:String>
+
+    <sys:String x:Key="StatusReady">Listo para convertir.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">Listo. F10 convierte {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">Resumen</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix convierte texto escrito con la distribución de teclado equivocada.</sys:String>
+    <sys:String x:Key="RailQuickHint">Selecciona el texto y pulsa F10.</sys:String>
+    <sys:String x:Key="RailLinks">Enlaces</sys:String>
+    <sys:String x:Key="RailWebsite">Sitio web</sys:String>
+    <sys:String x:Key="RailSupportTitle">Apoyar el desarrollo</sys:String>
+    <sys:String x:Key="RailSupportBody">Ayúdanos a mejorar TypeFix.</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">Minimizar</sys:String>
+    <sys:String x:Key="TooltipMaximize">Maximizar</sys:String>
+    <sys:String x:Key="TooltipRestore">Restaurar</sys:String>
+    <sys:String x:Key="TooltipClose">Cerrar a la bandeja</sys:String>
+    <sys:String x:Key="TooltipClearNotes">Borrar las dos notas</sys:String>
+    <sys:String x:Key="TooltipConvert">Convertir la nota original (Ctrl+Enter)</sys:String>
+    <sys:String x:Key="TooltipSwitch">Intercambiar la nota original y la convertida</sys:String>
+    <sys:String x:Key="TooltipCopyResult">Copiar la nota convertida</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">Copiar el enlace del sitio</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">Copiar el enlace de GitHub</sys:String>
+    <sys:String x:Key="TooltipDonate">Abrir la página de apoyo</sys:String>
+
+    <sys:String x:Key="TrayOpen">Abrir TypeFix</sys:String>
+    <sys:String x:Key="TrayExit">Salir</sys:String>
+    <sys:String x:Key="TrayBalloon">Sigue en la bandeja. Pulsa F10 para convertir. Clic derecho para salir.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">No se pudo copiar al portapapeles.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">No se pudo registrar F10. Puede que otra aplicación lo use.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">Selección convertida con {0}.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">Escribe una nota y pulsa Convertir.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">El texto no cambió. Puede que ya coincida con la distribución.</sys:String>
+    <sys:String x:Key="StatusTryConverted">Convertido. Cambiar intercambia las notas para volver atrás.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">Aún no hay nada que cambiar.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">Notas intercambiadas. Pulsa Convertir para mapear de nuevo la de arriba.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">Aún no hay nada que copiar. Convierte una nota primero.</sys:String>
+    <sys:String x:Key="StatusTryCopied">Nota convertida copiada.</sys:String>
+    <sys:String x:Key="StatusTryCleared">Notas de prueba borradas.</sys:String>
+    <sys:String x:Key="StatusStartupOn">Inicio activado: TypeFix se abrirá con Windows.</sys:String>
+    <sys:String x:Key="StatusStartupOff">Inicio desactivado.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">Distribución activa</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 solo convierte este par. Elige otra distribución para cambiar.</sys:String>
+    <sys:String x:Key="LayoutInstalled">Distribuciones instaladas</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">Incluida</sys:String>
+    <sys:String x:Key="LayoutImported">Importada</sys:String>
+    <sys:String x:Key="LayoutImport">Importar</sys:String>
+    <sys:String x:Key="LayoutExportAll">Exportar todo</sys:String>
+    <sys:String x:Key="LayoutFileHint">Cada archivo es un par de idiomas. Acerca de explica cómo crearlo. Importa un json o un zip.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} pares</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">¿Quitar «{0}»?</sys:String>
+    <sys:String x:Key="LayoutFileFilter">Archivos de distribución (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">Archivo zip (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">Importar un JSON o un zip de distribuciones</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">Exportar todas las distribuciones a un zip</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">Quitar esta distribución</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 ahora usa {0}.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">Se importó {0}. Ahora es la distribución activa.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">Se importaron {0} distribuciones. Activa: {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">Importados {0}. Omitidos {1} archivos.</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">No se pudo importar. El JSON necesita cadenas de caracteres de la misma longitud.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} ya está instalado y ahora está activo.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">Se quitó {0}. F10 usa {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">No se pudo quitar esta distribución.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">Se exportaron {0} distribuciones.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">No se pudieron exportar las distribuciones.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">Enlace del sitio copiado.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">Enlace de GitHub copiado.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">Idioma de la aplicación: español.</sys:String>
+</ResourceDictionary>

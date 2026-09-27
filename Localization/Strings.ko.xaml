@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">키보드 배열 변환</sys:String>
+    <sys:String x:Key="NavGeneral">일반</sys:String>
+    <sys:String x:Key="NavTry">시험</sys:String>
+    <sys:String x:Key="NavSettings">설정</sys:String>
+    <sys:String x:Key="NavAbout">정보</sys:String>
+    <sys:String x:Key="SidebarFooter">변환. 공유. 지원.</sys:String>
+
+    <sys:String x:Key="GeneralLead">잘못된 배열로 입력한 글을 선택한 뒤 F10을 누르세요. TypeFix가 아래의 활성 배열로 바꿉니다. 배열은 한 가지만 켜집니다.</sys:String>
+    <sys:String x:Key="GeneralHotkey">선택한 글을 바꾸려면 F10</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">알림 영역에 남음</sys:String>
+    <sys:String x:Key="GeneralTrayBody">창을 닫아도 TypeFix는 계속 실행됩니다. 종료하려면 아이콘을 오른쪽 클릭하세요. 시작 프로그램과 배열 파일은 설정에 있습니다.</sys:String>
+
+    <sys:String x:Key="TryLead">글을 쓰거나 붙여 넣은 뒤 변환하세요. 바꾸기는 두 칸을 맞바꿔 방향을 되돌립니다.</sys:String>
+    <sys:String x:Key="TryOriginal">원문</sys:String>
+    <sys:String x:Key="TryPlaceholder">잘못된 배열로 글을 쓰세요…  Ctrl+Enter로 변환</sys:String>
+    <sys:String x:Key="TryConvert">변환</sys:String>
+    <sys:String x:Key="TrySwitch">바꾸기</sys:String>
+    <sys:String x:Key="TryConverted">변환된 글</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">변환된 글이 여기에 나타납니다</sys:String>
+
+    <sys:String x:Key="SettingsLead">앱 언어, TypeFix가 시작되는 방식, 어떤 변환 배열이 켜져 있는지 고르세요.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">앱 언어</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">화면이 바로 바뀌고 선택이 저장됩니다.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">Windows가 시작될 때 TypeFix 실행</sys:String>
+    <sys:String x:Key="SettingsStartupBody">컴퓨터를 켜면 프로그램이 백그라운드에서 시작됩니다.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">변환 배열</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">다른 언어 쌍의 JSON을 추가하고, 어떤 것을 켤지 고르거나 모두 내보내세요. F10은 활성 배열만 사용합니다.</sys:String>
+
+    <sys:String x:Key="AboutLead">키보드 배열이 잘못되었을 때 TypeFix가 선택한 글을 어떻게 바꾸는지.</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  글을 선택</sys:String>
+    <sys:String x:Key="AboutStep1Body">잘못된 배열로 친 단어를 표시하세요.</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  F10을 누름</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix가 선택 영역을 복사해 변환한 뒤 다시 붙여 넣습니다.</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  배열 쌍</sys:String>
+    <sys:String x:Key="AboutStep3Body">기본 쌍은 모두 English와 짝입니다: فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, 한국어. 한 가지만 켜집니다. 아래 안내로 다른 언어를 추가할 수 있습니다.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">언어 파일 만들기</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">언어마다 JSON 파일 하나입니다. Name 칸이 목록에 보이는 이름입니다.
+
+빠른 방법: 모두 내보내기를 누르고 페르시아어 파일을 연 뒤 이름과 문자를 바꾸고 새 이름으로 저장한 다음 가져오기를 누르세요.
+
+1. Layout1Chars는 첫 배열입니다. 왼쪽에서 오른쪽으로, 줄마다 키를 적습니다.
+2. Layout2Chars는 같은 물리 키의 다른 배열입니다. 두 문자열 길이는 같아야 합니다. 양쪽의 n번째는 같은 키입니다.
+3. Shift 층은 선택입니다. Layout1ShiftChars와 Layout2ShiftChars를 넣으면 각각 기본 문자열과 길이가 같아야 합니다.
+4. 일반 또는 설정에서 파일을 가져옵니다. 바로 활성 배열이 됩니다.
+5. 배열은 한 가지만 켜집니다. F10은 그 쌍으로 변환합니다.
+6. 모두 내보내기는 가져온 것을 포함해 모든 배열을 zip 하나에 저장합니다.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">예: 中文 ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix는 키 하나에 글자 하나를 연결합니다. 페르시아어, 아랍어, 프랑스어, 이탈리아어, 그리고 키당 한 글자인 중국어 배열이 이렇게 동작합니다. 병음 입력은 키 대응이 아니므로 이 파일에 넣지 않습니다.
+
+네 개의 키: q는 你, w → 好, e → 世, r → 界. 그러면 Layout1Chars는 qwer, Layout2Chars는 你好世界입니다. 둘 다 길이는 4입니다. 필요한 키마다 같은 방식으로 적으세요.
+
+아래 상자는 완전한 템플릿입니다. Layout2Chars는 아직 영어라서 그 문자를 바꾸기 전에는 F10이 아무것도 바꾸지 않습니다. json으로 저장한 뒤 가져오기를 누르세요.</sys:String>
+    <sys:String x:Key="AboutCopySample">템플릿 복사</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">템플릿을 복사했습니다. json으로 저장하고 문자를 바꾼 뒤 가져오기를 누르세요.</sys:String>
+
+    <sys:String x:Key="StatusReady">변환할 준비가 되었습니다.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">준비됨. F10이 변환합니다: {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">요약</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix는 잘못된 키보드 배열로 입력한 글을 바꿉니다.</sys:String>
+    <sys:String x:Key="RailQuickHint">글을 선택하고 F10을 누르세요.</sys:String>
+    <sys:String x:Key="RailLinks">링크</sys:String>
+    <sys:String x:Key="RailWebsite">웹사이트</sys:String>
+    <sys:String x:Key="RailSupportTitle">개발 지원</sys:String>
+    <sys:String x:Key="RailSupportBody">TypeFix를 더 좋게 만드는 데 도움을 주세요.</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">최소화</sys:String>
+    <sys:String x:Key="TooltipMaximize">최대화</sys:String>
+    <sys:String x:Key="TooltipRestore">복원</sys:String>
+    <sys:String x:Key="TooltipClose">알림 영역으로 닫기</sys:String>
+    <sys:String x:Key="TooltipClearNotes">두 글 모두 지우기</sys:String>
+    <sys:String x:Key="TooltipConvert">원문 변환 (Ctrl+Enter)</sys:String>
+    <sys:String x:Key="TooltipSwitch">원문과 변환 결과 바꾸기</sys:String>
+    <sys:String x:Key="TooltipCopyResult">변환된 글 복사</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">웹사이트 링크 복사</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">GitHub 링크 복사</sys:String>
+    <sys:String x:Key="TooltipDonate">지원 페이지 열기</sys:String>
+
+    <sys:String x:Key="TrayOpen">TypeFix 열기</sys:String>
+    <sys:String x:Key="TrayExit">종료</sys:String>
+    <sys:String x:Key="TrayBalloon">알림 영역에서 계속 실행 중입니다. 변환은 F10. 종료는 오른쪽 클릭.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">클립보드에 복사하지 못했습니다.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">F10 단축키를 등록하지 못했습니다. 다른 프로그램이 쓰고 있을 수 있습니다.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">{0}(으)로 선택 영역을 변환했습니다.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">글을 쓴 뒤 변환을 누르세요.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">글이 바뀌지 않았습니다. 이미 배열과 맞을 수 있습니다.</sys:String>
+    <sys:String x:Key="StatusTryConverted">변환했습니다. 바꾸기는 방향을 되돌리도록 두 글을 맞바꿉니다.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">아직 바꿀 내용이 없습니다.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">두 글을 맞바꿨습니다. 위쪽을 다시 대응하려면 변환을 누르세요.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">아직 복사할 내용이 없습니다. 먼저 글을 변환하세요.</sys:String>
+    <sys:String x:Key="StatusTryCopied">변환된 글을 복사했습니다.</sys:String>
+    <sys:String x:Key="StatusTryCleared">시험 글을 지웠습니다.</sys:String>
+    <sys:String x:Key="StatusStartupOn">시작 프로그램 켜짐: TypeFix가 Windows와 함께 실행됩니다.</sys:String>
+    <sys:String x:Key="StatusStartupOff">시작 프로그램 꺼짐.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">활성 배열</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10은 이 쌍만 변환합니다. 바꾸려면 다른 배열을 고르세요.</sys:String>
+    <sys:String x:Key="LayoutInstalled">설치된 배열</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">기본 포함</sys:String>
+    <sys:String x:Key="LayoutImported">가져옴</sys:String>
+    <sys:String x:Key="LayoutImport">가져오기</sys:String>
+    <sys:String x:Key="LayoutExportAll">모두 내보내기</sys:String>
+    <sys:String x:Key="LayoutFileHint">파일 하나는 언어 쌍 하나입니다. 만드는 방법은 정보에 있습니다. json 또는 zip을 가져오세요.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0}쌍</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">“{0}”을(를) 삭제할까요?</sys:String>
+    <sys:String x:Key="LayoutFileFilter">배열 파일 (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">Zip 압축 (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">배열 JSON 또는 zip 가져오기</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">모든 배열을 zip으로 내보내기</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">이 배열 삭제</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10이 이제 {0}을(를) 사용합니다.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">{0}을(를) 가져왔습니다. 이제 활성 배열입니다.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">배열 {0}개를 가져왔습니다. 활성: {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">{0}개를 가져왔습니다. 파일 {1}개를 건너뛰었습니다.</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">가져오지 못했습니다. JSON의 문자열이 같은 길이여야 합니다.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0}은(는) 이미 설치되어 있고 지금 활성입니다.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">{0}을(를) 삭제했습니다. F10은 이제 {1}을(를) 사용합니다.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">이 배열을 삭제하지 못했습니다.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">배열 {0}개를 내보냈습니다.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">배열을 내보내지 못했습니다.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">웹사이트 링크를 복사했습니다.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">GitHub 링크를 복사했습니다.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">앱 언어가 한국어로 바뀌었습니다.</sys:String>
+</ResourceDictionary>

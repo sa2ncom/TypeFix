@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">Convertisseur de disposition</sys:String>
+    <sys:String x:Key="NavGeneral">Général</sys:String>
+    <sys:String x:Key="NavTry">Essai</sys:String>
+    <sys:String x:Key="NavSettings">Réglages</sys:String>
+    <sys:String x:Key="NavAbout">À propos</sys:String>
+    <sys:String x:Key="SidebarFooter">Convertir. Partager. Soutenir.</sys:String>
+
+    <sys:String x:Key="GeneralLead">Sélectionnez le texte mal tapé et appuyez sur F10. TypeFix le convertit avec la disposition active ci-dessous. Une seule disposition est activée.</sys:String>
+    <sys:String x:Key="GeneralHotkey">Appuyez sur F10 pour convertir la sélection</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">Reste dans la zone de notification</sys:String>
+    <sys:String x:Key="GeneralTrayBody">Fermer la fenêtre laisse TypeFix actif. Clic droit sur l’icône pour quitter. Le démarrage et les fichiers de disposition sont dans Réglages.</sys:String>
+
+    <sys:String x:Key="TryLead">Écrivez ou collez une note, puis convertissez-la. Inverser échange les deux zones pour revenir en arrière.</sys:String>
+    <sys:String x:Key="TryOriginal">Texte d’origine</sys:String>
+    <sys:String x:Key="TryPlaceholder">Écrivez une note avec la mauvaise disposition…  Ctrl+Entrée convertit</sys:String>
+    <sys:String x:Key="TryConvert">Convertir</sys:String>
+    <sys:String x:Key="TrySwitch">Inverser</sys:String>
+    <sys:String x:Key="TryConverted">Texte converti</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">Le texte converti apparaît ici</sys:String>
+
+    <sys:String x:Key="SettingsLead">Choisissez la langue de l’application, le démarrage de TypeFix et la disposition de conversion active.</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">Langue de l’application</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">L’interface change tout de suite. Votre choix est mémorisé.</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">Lancer TypeFix au démarrage de Windows</sys:String>
+    <sys:String x:Key="SettingsStartupBody">L’application démarre en arrière-plan à l’allumage du PC.</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">Dispositions de conversion</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">Ajoutez un fichier JSON pour une autre paire, choisissez celle qui est active, ou exportez-les toutes. F10 n’utilise que la disposition active.</sys:String>
+
+    <sys:String x:Key="AboutLead">Comment TypeFix convertit une sélection quand la disposition du clavier est mauvaise.</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  Sélectionnez le texte</sys:String>
+    <sys:String x:Key="AboutStep1Body">Surlignez les mots tapés avec la mauvaise disposition.</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  Appuyez sur F10</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix copie la sélection, la convertit et la colle.</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  Paires de dispositions</sys:String>
+    <sys:String x:Key="AboutStep3Body">Paires incluses, chacune avec English : فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Une seule est active. Le guide ci-dessous sert à en ajouter une autre.</sys:String>
+    <sys:String x:Key="AboutGuideTitle">Créer un fichier de langue</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">Chaque langue est un fichier JSON. Le champ Name est le nom affiché dans la liste.
+
+Le plus simple : cliquez sur Tout exporter, ouvrez le fichier persan, changez le nom et les caractères, enregistrez sous un nouveau nom, puis cliquez sur Importer.
+
+1. Layout1Chars est la première disposition, touche par touche, de gauche à droite et ligne par ligne.
+2. Layout2Chars est l’autre disposition pour les mêmes touches physiques. Les deux chaînes doivent avoir la même longueur. L’indice n des deux est une seule touche.
+3. La couche Maj est facultative. Si vous ajoutez Layout1ShiftChars et Layout2ShiftChars, chacune doit avoir la longueur de sa chaîne de base.
+4. Importez le fichier depuis Général ou Réglages. Il devient aussitôt la disposition active.
+5. Une seule disposition est active. F10 convertit avec cette paire.
+6. Tout exporter enregistre chaque disposition, y compris celles importées, dans un seul zip.</sys:String>
+    <sys:String x:Key="AboutExampleTitle">Exemple : 中文 ↔ English</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix associe un caractère à chaque touche. C’est ainsi que fonctionnent le persan, l’arabe, le français, l’italien, ou une disposition chinoise caractère par touche. La saisie Pinyin n’est pas une disposition touche par touche : elle n’entre pas dans ce fichier.
+
+Quatre touches : q devient 你, w → 好, e → 世, r → 界. Alors Layout1Chars vaut qwer et Layout2Chars vaut 你好世界. Les deux longueurs sont 4. Faites de même pour chaque touche utile.
+
+La zone ci-dessous est un modèle complet. Layout2Chars est encore en anglais, donc F10 ne change rien tant que vous ne remplacez pas ces caractères. Enregistrez un fichier json, puis cliquez sur Importer.</sys:String>
+    <sys:String x:Key="AboutCopySample">Copier le modèle</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">Modèle copié. Enregistrez-le en json, remplacez les caractères, puis cliquez sur Importer.</sys:String>
+
+    <sys:String x:Key="StatusReady">Prêt à convertir.</sys:String>
+    <sys:String x:Key="StatusReadyLayout">Prêt. F10 convertit {0}.</sys:String>
+    <sys:String x:Key="RailQuickInfo">En bref</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix convertit un texte tapé avec la mauvaise disposition de clavier.</sys:String>
+    <sys:String x:Key="RailQuickHint">Sélectionnez le texte et appuyez sur F10.</sys:String>
+    <sys:String x:Key="RailLinks">Liens</sys:String>
+    <sys:String x:Key="RailWebsite">Site web</sys:String>
+    <sys:String x:Key="RailSupportTitle">Soutenir le développement</sys:String>
+    <sys:String x:Key="RailSupportBody">Aidez-nous à améliorer TypeFix.</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">Réduire</sys:String>
+    <sys:String x:Key="TooltipMaximize">Agrandir</sys:String>
+    <sys:String x:Key="TooltipRestore">Restaurer</sys:String>
+    <sys:String x:Key="TooltipClose">Fermer dans la zone de notification</sys:String>
+    <sys:String x:Key="TooltipClearNotes">Effacer les deux notes</sys:String>
+    <sys:String x:Key="TooltipConvert">Convertir la note d’origine (Ctrl+Entrée)</sys:String>
+    <sys:String x:Key="TooltipSwitch">Échanger la note d’origine et la note convertie</sys:String>
+    <sys:String x:Key="TooltipCopyResult">Copier la note convertie</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">Copier le lien du site</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">Copier le lien GitHub</sys:String>
+    <sys:String x:Key="TooltipDonate">Ouvrir la page de soutien</sys:String>
+
+    <sys:String x:Key="TrayOpen">Ouvrir TypeFix</sys:String>
+    <sys:String x:Key="TrayExit">Quitter</sys:String>
+    <sys:String x:Key="TrayBalloon">Toujours actif dans la zone de notification. F10 convertit. Clic droit pour quitter.</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">Impossible de copier dans le presse-papiers.</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">Impossible d’enregistrer le raccourci F10. Une autre application l’utilise peut-être.</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">Sélection convertie avec {0}.</sys:String>
+    <sys:String x:Key="StatusTryEmpty">Écrivez une note, puis cliquez sur Convertir.</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">Le texte n’a pas changé. Il correspond peut-être déjà à la disposition.</sys:String>
+    <sys:String x:Key="StatusTryConverted">Converti. Inverser échange les notes pour revenir en arrière.</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">Rien à inverser pour le moment.</sys:String>
+    <sys:String x:Key="StatusTrySwapped">Notes échangées. Cliquez sur Convertir pour mapper de nouveau celle du haut.</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">Rien à copier. Convertissez d’abord une note.</sys:String>
+    <sys:String x:Key="StatusTryCopied">Note convertie copiée.</sys:String>
+    <sys:String x:Key="StatusTryCleared">Notes d’essai effacées.</sys:String>
+    <sys:String x:Key="StatusStartupOn">Démarrage activé : TypeFix se lancera avec Windows.</sys:String>
+    <sys:String x:Key="StatusStartupOff">Démarrage désactivé.</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">Disposition active</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 ne convertit que cette paire. Choisissez une autre disposition pour changer.</sys:String>
+    <sys:String x:Key="LayoutInstalled">Dispositions installées</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">Incluse</sys:String>
+    <sys:String x:Key="LayoutImported">Importée</sys:String>
+    <sys:String x:Key="LayoutImport">Importer</sys:String>
+    <sys:String x:Key="LayoutExportAll">Tout exporter</sys:String>
+    <sys:String x:Key="LayoutFileHint">Chaque fichier est une paire de langues. À propos explique comment en créer une. Importez un json ou un zip.</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} paires</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">Retirer « {0} » ?</sys:String>
+    <sys:String x:Key="LayoutFileFilter">Fichiers de disposition (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">Archive zip (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">Importer un JSON ou un zip de dispositions</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">Exporter toutes les dispositions dans un zip</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">Retirer cette disposition</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 utilise maintenant {0}.</sys:String>
+    <sys:String x:Key="StatusLayoutImported">{0} importé. C’est maintenant la disposition active.</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">{0} dispositions importées. Active : {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">{0} importé(s). {1} fichier(s) ignoré(s).</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">Import impossible. Le JSON doit avoir des chaînes de caractères de même longueur.</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} est déjà installé et devient actif.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">{0} retiré. F10 utilise {1}.</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">Impossible de retirer cette disposition.</sys:String>
+    <sys:String x:Key="StatusLayoutExported">{0} dispositions exportées.</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">Impossible d’exporter les dispositions.</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">Lien du site copié.</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">Lien GitHub copié.</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">Langue de l’application : français.</sys:String>
+</ResourceDictionary>

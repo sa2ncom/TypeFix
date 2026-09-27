@@ -1,0 +1,16 @@
+{
+  "Id": "en-fa",
+  "Name": "فارسی ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-Persian",
+      "Id": "en-fa",
+      "Layout1Name": "English",
+      "Layout2Name": "فارسی",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout2Chars": "ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدئو./",
+      "Layout1ShiftChars": "QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>?",
+      "Layout2ShiftChars": "\u0652\u064C\u064D\u064B\u064F\u0650\u064E\u0651][}{\u0624\u0626\u064A\u0625\u0623\u0622\u0629\u00BB\u00AB:\u061B\u0643\u0653\u0698\u0670\u200C\u0654\u0621><\u061F"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Id": "en-fr",
+  "Name": "Français ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-French",
+      "Id": "en-fr",
+      "Layout1Name": "English",
+      "Layout2Name": "Français",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout1ShiftChars": "QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>?",
+      "Layout2Chars": "azertyuiop^$qsdfghjklmùwxcvbn,;:!",
+      "Layout2ShiftChars": "AZERTYUIOP¨£QSDFGHJKLM%WXCVBN?./§"
+    }
+  ]
+}

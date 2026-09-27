@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>TypeFix.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Company>sa2ncom</Company>
+    <Product>TypeFix</Product>
+    <Authors>sa2ncom</Authors>
+    <Copyright>Copyright © 2026 sa2ncom</Copyright>
+    <Description>Smart keyboard-layout converter for Windows.</Description>
+    <RepositoryUrl>https://github.com/sa2ncom/TypeFix</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Vazirmatn-Regular.ttf" />
+    <Resource Include="Fonts\Vazirmatn-Medium.ttf" />
+    <Resource Include="Fonts\Vazirmatn-SemiBold.ttf" />
+    <Resource Include="Fonts\Vazirmatn-Bold.ttf" />
+    <Resource Include="Fonts\Vazirmatn-ExtraBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TypeFixLayouts.json">
+      <LogicalName>TypeFix.TypeFixLayouts.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-ar.json">
+      <LogicalName>TypeFix.Layouts.en-ar.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-fr.json">
+      <LogicalName>TypeFix.Layouts.en-fr.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-it.json">
+      <LogicalName>TypeFix.Layouts.en-it.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-es.json">
+      <LogicalName>TypeFix.Layouts.en-es.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-tr.json">
+      <LogicalName>TypeFix.Layouts.en-tr.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-zh.json">
+      <LogicalName>TypeFix.Layouts.en-zh.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-ko.json">
+      <LogicalName>TypeFix.Layouts.en-ko.json</LogicalName>
+    </EmbeddedResource>
+    <Content Include="TypeFix.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
