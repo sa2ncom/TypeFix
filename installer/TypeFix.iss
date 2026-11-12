@@ -1,9 +1,9 @@
-﻿; TypeFix Windows installer.
+; TypeFix Windows installer.
 ; Per-user install, uninstall entry in Settings > Apps, desktop shortcut
 ; Finished page: desktop shortcut and launch checkboxes, both checked by default.
 
 #define AppName "TypeFix"
-#define AppVersion "1.0.0"
+#define AppVersion "1.0.1"
 #define AppPublisher "TypeFix"
 #define AppExe "TypeFix.exe"
 #define AppId "{{7E4A9C2D-1B6F-4E83-A5D0-9C8F2E6B41A3}"
@@ -27,6 +27,7 @@
 
 [Setup]
 AppId={#AppId}
+AppMutex=TypeFix_SingleInstance_Mutex_B6A974A3-DFF6-4DF1-92BE-753C172BD3E8
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppPublisher={#AppPublisher}
@@ -69,6 +70,7 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "turkish"; MessagesFile: "compiler:Languages\Turkish.isl"
 Name: "chinese"; MessagesFile: "Languages\ChineseSimplified.isl"
 Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl"
+Name: "hindi"; MessagesFile: "Languages\Hindi.isl"
 
 [CustomMessages]
 english.DesktopShortcut=Create a desktop shortcut
@@ -89,6 +91,8 @@ chinese.DesktopShortcut=在桌面创建快捷方式
 chinese.LaunchProgram=启动 TypeFix
 korean.DesktopShortcut=바탕 화면에 바로 가기 만들기
 korean.LaunchProgram=TypeFix 실행
+hindi.DesktopShortcut=डेस्कटॉप पर शॉर्टकट बनाएं
+hindi.LaunchProgram=TypeFix शुरू करें
 
 [Run]
 Filename: "{app}\{#AppExe}"; Description: "{cm:LaunchProgram}"; Flags: nowait postinstall; Check: ShouldLaunch
@@ -99,6 +103,9 @@ Source: "..\publish\{#PublishRid}\{#AppExe}"; DestDir: "{app}"; Flags: ignorever
 [Icons]
 Name: "{autoprograms}\{#AppName}"; Filename: "{app}\{#AppExe}"; Comment: "{#AppName}"
 Name: "{userdesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Comment: "{#AppName}"
+
+[Registry]
+Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "{#AppName}"; ValueData: """{app}\{#AppExe}"" --tray"; Flags: uninsdeletevalue
 
 [Code]
 var
@@ -178,8 +185,25 @@ begin
     PlaceFinishedChecks;
 end;
 
+procedure StopTypeFix;
+var
+  AppExePath: String;
+  ResultCode: Integer;
+begin
+  AppExePath := ExpandConstant('{app}\{#AppExe}');
+  if FileExists(AppExePath) then
+  begin
+    Exec(AppExePath, '--exit', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Sleep(300);
+  end;
+  Exec('taskkill.exe', '/f /im {#AppExe}', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+end;
+
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
+  if CurStep = ssInstall then
+    StopTypeFix;
+
   { The desktop icon is created with the other icons. Silent setup skips the
     finished page, so /NODESKTOPICON removes it. The checkbox defaults to checked. }
   if (CurStep = ssPostInstall) and WizardSilent and CmdLineHas('/NODESKTOPICON') then
@@ -197,11 +221,17 @@ procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 var
   RunValue, InstallExe: String;
 begin
+  if CurUninstallStep = usAppMutexCheck then
+  begin
+    StopTypeFix;
+    Exit;
+  end;
+
   if CurUninstallStep <> usPostUninstall then
     Exit;
 
   InstallExe := '"' + ExpandConstant('{app}\{#AppExe}') + '"';
   if RegQueryStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Run', '{#AppName}', RunValue) then
-    if CompareText(RunValue, InstallExe) = 0 then
+    if (CompareText(RunValue, InstallExe) = 0) or (Pos(InstallExe, RunValue) = 1) then
       RegDeleteValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Run', '{#AppName}');
 end;

@@ -35,7 +35,7 @@
     <sys:String x:Key="AboutStep2Title">2  按 F10</sys:String>
     <sys:String x:Key="AboutStep2Body">TypeFix 复制选区、转换后再粘贴回去。</sys:String>
     <sys:String x:Key="AboutStep3Title">3  布局配对</sys:String>
-    <sys:String x:Key="AboutStep3Body">内置配对，每组都与 English 对应：فارسی、العربية、Français、Italiano、Español、Türkçe、中文、한국어。一次只启用一组。下面的说明用来添加其他语言。</sys:String>
+    <sys:String x:Key="AboutStep3Body">内置配对，每组都与 English 对应：فارسی、العربية、Français、Italiano、Español、Türkçe、中文、한국어、हिन्दी。一次只启用一组。下面的说明用来添加其他语言。</sys:String>
     <sys:String x:Key="AboutGuideTitle">制作语言文件</sys:String>
     <sys:String x:Key="AboutGuideBody" xml:space="preserve">每种语言是一个 JSON 文件。Name 字段就是列表里显示的名称。
 
@@ -124,4 +124,17 @@
     <sys:String x:Key="StatusWebsiteCopied">已复制网站链接。</sys:String>
     <sys:String x:Key="StatusGitHubCopied">已复制 GitHub 链接。</sys:String>
     <sys:String x:Key="StatusLanguageChanged">界面语言已设为中文。</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">此更新包含关键改进。请更新以继续使用 TypeFix。</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">检查更新</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">检查新版本与最新功能。</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">软件更新</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">下载更新</sys:String>
+    <sys:String x:Key="UpdateClose">关闭</sys:String>
+    <sys:String x:Key="UpdateChecking">正在检查更新...</sys:String>
+    <sys:String x:Key="UpdateFailed">无法检查更新，请检查网络连接。</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">TypeFix {0} 现已发布！</sys:String>
+    <sys:String x:Key="UpdateUpToDate">TypeFix 已是最新版本 ({0})。</sys:String>
+    <sys:String x:Key="UpdateRemindLater">稍后提醒</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">需要进行必要更新</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">版本 {0} 的新功能：</sys:String>
 </ResourceDictionary>

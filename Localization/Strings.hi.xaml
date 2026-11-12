@@ -1,0 +1,140 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <sys:String x:Key="Subtitle">स्मार्ट कीबोर्ड लेआउट कनवर्टर</sys:String>
+    <sys:String x:Key="NavGeneral">सामान्य</sys:String>
+    <sys:String x:Key="NavTry">परीक्षण</sys:String>
+    <sys:String x:Key="NavSettings">सेटिंग्स</sys:String>
+    <sys:String x:Key="NavAbout">परिचय</sys:String>
+    <sys:String x:Key="SidebarFooter">रूपांतरित करें. साझा करें. समर्थन करें.</sys:String>
+
+    <sys:String x:Key="GeneralLead">गलत लेआउट में टाइप किए गए टेक्स्ट को चुनें और F10 दबाएं। TypeFix इसे नीचे दिए गए सक्रिय लेआउट से बदलता है। केवल एक लेआउट सक्रिय रहता है।</sys:String>
+    <sys:String x:Key="GeneralHotkey">चयनित टेक्स्ट को रूपांतरित करने के लिए F10 दबाएं</sys:String>
+    <sys:String x:Key="GeneralTrayTitle">सिस्टम ट्रे में चलता है</sys:String>
+    <sys:String x:Key="GeneralTrayBody">विंडो बंद करने पर भी TypeFix चलता रहता है। बाहर निकलने के लिए ट्रे आइकन पर राइट-क्लिक करें। स्टार्टअप और लेआउट फ़ाइलें सेटिंग्स में हैं।</sys:String>
+
+    <sys:String x:Key="TryLead">कोई नोट टाइप करें या पेस्ट करें, फिर रूपांतरित करें। 'बदलें' बटन दोनों बॉक्स को आपस में बदल देता है ताकि आप वापस रूपांतरित कर सकें।</sys:String>
+    <sys:String x:Key="TryOriginal">मूल टेक्स्ट</sys:String>
+    <sys:String x:Key="TryPlaceholder">गलत टाइप किया गया नोट लिखें… Ctrl+Enter से रूपांतरित करें</sys:String>
+    <sys:String x:Key="TryConvert">रूपांतरित करें</sys:String>
+    <sys:String x:Key="TrySwitch">बदलें</sys:String>
+    <sys:String x:Key="TryConverted">रूपांतरित टेक्स्ट</sys:String>
+    <sys:String x:Key="TryOutputPlaceholder">रूपांतरित टेक्स्ट यहाँ दिखाई देगा</sys:String>
+
+    <sys:String x:Key="SettingsLead">ऐप की भाषा, TypeFix के शुरू होने का तरीका और सक्रिय रूपांतरण लेआउट चुनें।</sys:String>
+    <sys:String x:Key="SettingsLanguageTitle">ऐप भाषा</sys:String>
+    <sys:String x:Key="SettingsLanguageBody">इंटरफ़ेस तुरंत बदल जाता है। आपकी पसंद याद रखी जाती है।</sys:String>
+    <sys:String x:Key="SettingsStartupTitle">विंडोज़ शुरू होने पर TypeFix स्वचालित रूप से चलाएं</sys:String>
+    <sys:String x:Key="SettingsStartupBody">पीसी शुरू होने पर ऐप बैकग्राउंड में चालू हो जाएगा।</sys:String>
+    <sys:String x:Key="SettingsLayoutTitle">रूपांतरण लेआउट</sys:String>
+    <sys:String x:Key="SettingsLayoutLead">किसी अन्य भाषा युग्म के लिए JSON फ़ाइल जोड़ें, चुनें कि कौन सा चालू रहे, या सभी को निर्यात करें। F10 केवल सक्रिय लेआउट का उपयोग करता है।</sys:String>
+
+    <sys:String x:Key="AboutLead">कीबोर्ड लेआउट गलत होने पर TypeFix चयनित टेक्स्ट को कैसे रूपांतरित करता है।</sys:String>
+    <sys:String x:Key="AboutStep1Title">1  टेक्स्ट चुनें</sys:String>
+    <sys:String x:Key="AboutStep1Body">उन शब्दों को हाइलाइट करें जिन्हें आपने गलत लेआउट में टाइप किया है।</sys:String>
+    <sys:String x:Key="AboutStep2Title">2  F10 दबाएं</sys:String>
+    <sys:String x:Key="AboutStep2Body">TypeFix चयनित टेक्स्ट को कॉपी करता है, रूपांतरित करता है और वापस पेस्ट करता है।</sys:String>
+    <sys:String x:Key="AboutStep3Title">3  लेआउट युग्म</sys:String>
+    <sys:String x:Key="AboutStep3Body">अंतर्निहित युग्म, प्रत्येक English के साथ: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어، हिन्दी। केवल चयनित लेआउट सक्रिय रहता है। नीचे दी गई गाइड दूसरी भाषा जोड़ने के लिए है।</sys:String>
+    <sys:String x:Key="AboutGuideTitle">भाषा फ़ाइल बनाएं</sys:String>
+    <sys:String x:Key="AboutGuideBody" xml:space="preserve">प्रत्येक भाषा एक JSON फ़ाइल है। Name फ़ील्ड वह नाम है जो सूची में दिखाई देता है।
+
+आसान तरीका: 'सभी निर्यात करें' पर क्लिक करें, फ़ारसी फ़ाइल खोलें, नाम और वर्ण बदलें, नए नाम से सहेजें, फिर 'आयात करें' पर क्लिक करें।
+
+1. Layout1Chars पहला कीबोर्ड है, कुंजी-दर-कुंजी, बाएं से दाएं और पंक्ति-दर-पंक्ति।
+2. Layout2Chars उन्हीं भौतिक कुंजियों के लिए दूसरा कीबोर्ड है। दोनों स्ट्रिंग्स की लंबाई समान होनी चाहिए। दोनों स्ट्रिंग्स में इंडेक्स n एक कुंजी है।
+3. Shift वैकल्पिक है। यदि आप Layout1ShiftChars और Layout2ShiftChars जोड़ते हैं, तो प्रत्येक की लंबाई अपनी मूल स्ट्रिंग से मेल खानी चाहिए।
+4. फ़ाइल को 'सामान्य' या 'सेटिंग्स' से आयात करें। यह तुरंत सक्रिय लेआउट बन जाती है।
+5. केवल एक लेआउट सक्रिय रहता है। F10 उसी युग्म से रूपांतरित करता है।
+6. 'सभी निर्यात करें' आयातित फ़ाइलों सहित सभी लेआउट को एक ज़िप में सहेजता है।</sys:String>
+    <sys:String x:Key="AboutExampleTitle">उदाहरण: चीनी ↔ अंग्रेज़ी</sys:String>
+    <sys:String x:Key="AboutExampleBody" xml:space="preserve">TypeFix प्रति कुंजी एक वर्ण मैप करता है। फ़ारसी, अरबी, फ़्रेंच, रूसी या वर्ण-आधारित चीनी लेआउट इसी तरह काम करते हैं। पिनयिन इनपुट विधि कुंजी-दर-कुंजी लेआउट नहीं है, इसलिए यह इस फ़ाइल में शामिल नहीं होती।
+
+मान लीजिए चार कुंजियों को इस प्रकार बदलना है: q → 你, w → 好, e → 世, r → 界। तब Layout1Chars qwer होगा और Layout2Chars 你好世界 होगा। दोनों की लंबाई 4 है। अपनी ज़रूरत की हर कुंजी के लिए यही करें।
+
+नीचे दिया गया बॉक्स एक पूर्ण शुरुआती नमूना है। Layout2Chars अभी भी अंग्रेज़ी से मेल खाता है, इसलिए जब तक आप उन वर्णों को अपने दूसरे लेआउट के वर्णों से नहीं बदलते, F10 कुछ नहीं बदलेगा। इसे .json फ़ाइल के रूप में सहेजें और 'आयात करें' पर क्लिक करें।</sys:String>
+    <sys:String x:Key="AboutCopySample">नमूना कॉपी करें</sys:String>
+    <sys:String x:Key="StatusLayoutSampleCopied">नमूना कॉपी किया गया। इसे .json फ़ाइल के रूप में सहेजें, वर्ण बदलें, फिर आयात करें पर क्लिक करें।</sys:String>
+
+    <sys:String x:Key="StatusReady">रूपांतरण के लिए तैयार।</sys:String>
+    <sys:String x:Key="StatusReadyLayout">तैयार। F10 {0} को रूपांतरित करता है।</sys:String>
+    <sys:String x:Key="RailQuickInfo">त्वरित जानकारी</sys:String>
+    <sys:String x:Key="RailQuickBody">TypeFix गलत कीबोर्ड लेआउट में टाइप किए गए टेक्स्ट को रूपांतरित करता है (उदाहरण के लिए अंग्रेज़ी और हिन्दी)।</sys:String>
+    <sys:String x:Key="RailQuickHint">टेक्स्ट चुनें और F10 दबाएं।</sys:String>
+    <sys:String x:Key="RailLinks">लिंक</sys:String>
+    <sys:String x:Key="RailWebsite">वेबसाइट</sys:String>
+    <sys:String x:Key="RailSupportTitle">विकास का समर्थन करें</sys:String>
+    <sys:String x:Key="RailSupportBody">TypeFix को और बेहतर बनाने में हमारी मदद करें!</sys:String>
+
+    <sys:String x:Key="TooltipMinimize">न्यूनतम करें</sys:String>
+    <sys:String x:Key="TooltipMaximize">अधिकतम करें</sys:String>
+    <sys:String x:Key="TooltipRestore">पुनर्स्थापित करें</sys:String>
+    <sys:String x:Key="TooltipClose">ट्रे में बंद करें</sys:String>
+    <sys:String x:Key="TooltipClearNotes">दोनों नोट साफ़ करें</sys:String>
+    <sys:String x:Key="TooltipConvert">मूल नोट रूपांतरित करें (Ctrl+Enter)</sys:String>
+    <sys:String x:Key="TooltipSwitch">मूल और रूपांतरित नोट आपस में बदलें</sys:String>
+    <sys:String x:Key="TooltipCopyResult">रूपांतरित नोट कॉपी करें</sys:String>
+    <sys:String x:Key="TooltipCopyWebsite">वेबसाइट कॉपी करें</sys:String>
+    <sys:String x:Key="TooltipCopyGitHub">GitHub लिंक कॉपी करें</sys:String>
+    <sys:String x:Key="TooltipDonate">दान पृष्ठ खोलें</sys:String>
+
+    <sys:String x:Key="TrayOpen">TypeFix खोलें</sys:String>
+    <sys:String x:Key="TrayExit">बाहर निकलें</sys:String>
+    <sys:String x:Key="TrayBalloon">सिस्टम ट्रे में चल रहा है। रूपांतरित करने के लिए F10 दबाएं। बाहर निकलने के लिए आइकन पर राइट-क्लिक करें।</sys:String>
+
+    <sys:String x:Key="StatusCopyFailed">क्लिपबोर्ड पर कॉपी नहीं किया जा सका।</sys:String>
+    <sys:String x:Key="StatusHotkeyFailed">F10 हॉटकी पंजीकृत करने में विफल। यह किसी अन्य ऐप द्वारा उपयोग में हो सकती है।</sys:String>
+    <sys:String x:Key="StatusConvertedSelection">{0} के साथ चयनित टेक्स्ट को रूपांतरित किया गया।</sys:String>
+    <sys:String x:Key="StatusTryEmpty">एक नोट टाइप करें, फिर रूपांतरित करें पर क्लिक करें।</sys:String>
+    <sys:String x:Key="StatusTryUnchanged">टेक्स्ट में कोई बदलाव नहीं हुआ। यह पहले से ही कीबोर्ड लेआउट से मेल खा सकता है।</sys:String>
+    <sys:String x:Key="StatusTryConverted">रूपांतरित हो गया। 'बदलें' बटन नोटों को आपस में बदल देता है ताकि आप वापस रूपांतरित कर सकें।</sys:String>
+    <sys:String x:Key="StatusTryNothingToSwitch">बदलने के लिए अभी कुछ नहीं है।</sys:String>
+    <sys:String x:Key="StatusTrySwapped">नोट आपस में बदल दिए गए। ऊपर वाले को दोबारा रूपांतरित करने के लिए 'रूपांतरित करें' पर क्लिक करें।</sys:String>
+    <sys:String x:Key="StatusTryNothingToCopy">कॉपी करने के लिए अभी कुछ नहीं है। पहले एक नोट रूपांतरित करें।</sys:String>
+    <sys:String x:Key="StatusTryCopied">रूपांतरित नोट कॉपी किया गया।</sys:String>
+    <sys:String x:Key="StatusTryCleared">परीक्षण नोट साफ़ कर दिए गए।</sys:String>
+    <sys:String x:Key="StatusStartupOn">स्टार्टअप सक्षम: TypeFix विंडोज़ शुरू होने पर चलेगा।</sys:String>
+    <sys:String x:Key="StatusStartupOff">स्टार्टअप अक्षम।</sys:String>
+    <sys:String x:Key="LayoutActiveCaption">सक्रिय लेआउट</sys:String>
+    <sys:String x:Key="LayoutActiveHint">F10 केवल इस युग्म को रूपांतरित करता है। बदलने के लिए दूसरा लेआउट चुनें।</sys:String>
+    <sys:String x:Key="LayoutInstalled">स्थापित लेआउट</sys:String>
+    <sys:String x:Key="LayoutBuiltInName">فارسی ↔ English</sys:String>
+    <sys:String x:Key="LayoutBuiltIn">अंतर्निहित</sys:String>
+    <sys:String x:Key="LayoutImported">आयातित</sys:String>
+    <sys:String x:Key="LayoutImport">आयात करें</sys:String>
+    <sys:String x:Key="LayoutExportAll">सभी निर्यात करें</sys:String>
+    <sys:String x:Key="LayoutFileHint">प्रत्येक फ़ाइल एक भाषा युग्म है। परिचय में इसे बनाने का तरीका बताया गया है, जिसमें चीनी ↔ अंग्रेज़ी का उदाहरण भी शामिल है। कोई .json फ़ाइल या उनकी ज़िप आयात करें।</sys:String>
+    <sys:String x:Key="LayoutPairsCount">{0} युग्म</sys:String>
+    <sys:String x:Key="LayoutRemoveConfirm">"{0}" हटाएं?</sys:String>
+    <sys:String x:Key="LayoutFileFilter">लेआउट फ़ाइलें (*.json;*.zip)|*.json;*.zip</sys:String>
+    <sys:String x:Key="LayoutZipFilter">ज़िप संग्रह (*.zip)|*.zip</sys:String>
+    <sys:String x:Key="TooltipImportLayout">लेआउट JSON फ़ाइल या लेआउट की ज़िप आयात करें</sys:String>
+    <sys:String x:Key="TooltipExportLayouts">प्रत्येक लेआउट को एक ज़िप फ़ाइल में निर्यात करें</sys:String>
+    <sys:String x:Key="TooltipRemoveLayout">यह लेआउट हटाएं</sys:String>
+    <sys:String x:Key="StatusLayoutActivated">F10 अब {0} का उपयोग करता है।</sys:String>
+    <sys:String x:Key="StatusLayoutImported">{0} आयात किया गया। यह अब सक्रिय लेआउट है।</sys:String>
+    <sys:String x:Key="StatusLayoutImportedMany">{0} लेआउट आयात किए गए। सक्रिय: {1}।</sys:String>
+    <sys:String x:Key="StatusLayoutImportPartial">{0} आयात किया गया। {1} फ़ाइल(एं) छोड़ी गईं।</sys:String>
+    <sys:String x:Key="StatusLayoutImportFailed">आयात नहीं किया जा सका। ऐसे JSON लेआउट का उपयोग करें जिसके वर्णों की लंबाई समान हो।</sys:String>
+    <sys:String x:Key="StatusLayoutDuplicate">{0} पहले से स्थापित है और अब सक्रिय है।</sys:String>
+    <sys:String x:Key="StatusLayoutRemoved">{0} हटा दिया गया। F10 {1} का उपयोग करता है।</sys:String>
+    <sys:String x:Key="StatusLayoutRemoveFailed">वह लेआउट हटाया नहीं जा सका।</sys:String>
+    <sys:String x:Key="StatusLayoutExported">{0} लेआउट निर्यात किए गए।</sys:String>
+    <sys:String x:Key="StatusLayoutExportFailed">लेआउट निर्यात नहीं किए जा सके।</sys:String>
+    <sys:String x:Key="StatusWebsiteCopied">वेबसाइट लिंक कॉपी किया गया।</sys:String>
+    <sys:String x:Key="StatusGitHubCopied">GitHub लिंक कॉपी किया गया।</sys:String>
+    <sys:String x:Key="StatusLanguageChanged">ऐप की भाषा हिन्दी सेट की गई।</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">इस अपडेट में महत्वपूर्ण सुधार शामिल हैं। जारी रखने के लिए कृपया अपडेट करें।</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">अपडेट जाँचें</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">नए संस्करणों और सुधारों की जाँच करें।</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">एप्लिकेशन अपडेट</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">अपडेट डाउनलोड करें</sys:String>
+    <sys:String x:Key="UpdateClose">बंद करें</sys:String>
+    <sys:String x:Key="UpdateChecking">अपडेट की जाँच की जा रही है...</sys:String>
+    <sys:String x:Key="UpdateFailed">अपडेट की जाँच नहीं हो सकी। इंटरनेट कनेक्शन देखें।</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">TypeFix {0} उपलब्ध है!</sys:String>
+    <sys:String x:Key="UpdateUpToDate">TypeFix नवीनतम संस्करण है ({0})।</sys:String>
+    <sys:String x:Key="UpdateRemindLater">बाद में याद दिलाएं</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">आवश्यक अपडेट ज़रूरी</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">संस्करण {0} में नया क्या है:</sys:String>
+</ResourceDictionary>

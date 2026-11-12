@@ -22,6 +22,10 @@ if (-not $versionLine) {
 }
 $appVersion = $versionLine.Matches[0].Groups[1].Value
 
+# Close any running TypeFix instances so published files aren't locked
+Get-Process -Name "TypeFix" -ErrorAction SilentlyContinue | Stop-Process -Force
+Start-Sleep -Milliseconds 500
+
 $architectures = @('x64', 'x86', 'arm64')
 
 foreach ($arch in $architectures) {

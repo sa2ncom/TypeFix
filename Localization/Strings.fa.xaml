@@ -35,7 +35,7 @@
     <sys:String x:Key="AboutStep2Title">۲  F10 را بزنید</sys:String>
     <sys:String x:Key="AboutStep2Body">TypeFix انتخاب را کپی می‌کند، نگاشت می‌کند و دوباره می‌چسباند.</sys:String>
     <sys:String x:Key="AboutStep3Title">۳  جفت چیدمان‌ها</sys:String>
-    <sys:String x:Key="AboutStep3Body">جفت‌های داخلی، هر کدام با English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. فقط مورد انتخاب‌شده روشن است. راهنمای پایین برای افزودن زبان دیگر است.</sys:String>
+    <sys:String x:Key="AboutStep3Body">جفت‌های داخلی، هر کدام با English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어، हिन्दी. فقط مورد انتخاب‌شده روشن است. راهنمای پایین برای افزودن زبان دیگر است.</sys:String>
     <sys:String x:Key="AboutGuideTitle">ساخت فایل زبان</sys:String>
     <sys:String x:Key="AboutGuideBody" xml:space="preserve">هر زبان یک فایل JSON است. فیلد Name همان نامی است که در لیست می‌بینید.
 
@@ -124,4 +124,17 @@
     <sys:String x:Key="StatusWebsiteCopied">پیوند وب‌سایت کپی شد.</sys:String>
     <sys:String x:Key="StatusGitHubCopied">پیوند گیت‌هاب کپی شد.</sys:String>
     <sys:String x:Key="StatusLanguageChanged">زبان برنامه فارسی شد.</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">این به‌روزرسانی حاوی تغییرات ضروری است. لطفاً برای ادامه نسخهٔ جدید را دریافت کنید.</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">بررسی به‌روزرسانی</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">بررسی انتشار نسخه جدید و امکانات تازه.</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">به‌روزرسانی نرم‌افزار</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">دریافت نسخه جدید</sys:String>
+    <sys:String x:Key="UpdateClose">بستن</sys:String>
+    <sys:String x:Key="UpdateChecking">در حال بررسی به‌روزرسانی...</sys:String>
+    <sys:String x:Key="UpdateFailed">بررسی به‌روزرسانی ناموفق بود. اتصال اینترنت را بررسی کنید.</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">نسخهٔ جدید TypeFix {0} منتشر شد!</sys:String>
+    <sys:String x:Key="UpdateUpToDate">شما از آخرین نسخهٔ TypeFix استفاده می‌کنید ({0}).</sys:String>
+    <sys:String x:Key="UpdateRemindLater">بعداً یادآوری کن</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">به‌روزرسانی اجباری نرم‌افزار</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">تغییرات نسخهٔ {0}:</sys:String>
 </ResourceDictionary>

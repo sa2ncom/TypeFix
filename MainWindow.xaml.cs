@@ -29,6 +29,15 @@ namespace TypeFix
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint SendInput(uint nInputs, INPUT[] pInputs, int cbSize);
 
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        private const int SW_RESTORE = 9;
+
         private const int HOTKEY_ID = 1;
         private const uint MOD_NONE = 0x0000; // just F10
         private const int VK_F10 = 0x79;
@@ -72,6 +81,12 @@ namespace TypeFix
         private bool _allowExit;
         private bool _trayHintShown;
         private bool _suppressLanguageChange;
+        private UpdateCheckResult? _lastUpdateResult;
+        private bool _isCheckingUpdate;
+        private bool _lastCheckWasManual;
+        private bool _updateModalDismissed;
+        private bool _isMandatoryModalOpen;
+        private readonly CancellationTokenSource _updateCts = new();
         private bool _snugHeightApplied;
         private ResizeEdge _resizeEdge = ResizeEdge.None;
         private System.Windows.Point _resizeCursor;
@@ -108,12 +123,30 @@ namespace TypeFix
                 app.SessionEnding += (_, _) => _allowExit = true;
 
             StartupToggle.IsChecked = StartupManager.IsStartupEnabled();
+            StartupManager.EnsureStartupUpdatedIfEnabled();
 
-            var ver = Assembly.GetExecutingAssembly().GetName().Version;
-            VersionText.Text = ver is null ? "v1.0.0" : $"v{ver.Major}.{ver.Minor}.{ver.Build}";
+            VersionText.Text = UpdateService.CurrentVersionString;
             LayoutSampleBox.Text = LayoutSampleJson;
 
             SetStatus(UiLanguage.Format("StatusReadyLayout", _catalog.Label(_catalog.Active)));
+            WarmUpSubsystems();
+            ScheduleInitialUpdateCheck();
+        }
+
+        private void WarmUpSubsystems()
+        {
+            Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background, new Action(() =>
+            {
+                try
+                {
+                    _ = TryGetClipboardText();
+                    _ = _engine.Convert("TypeFix");
+                }
+                catch
+                {
+                    // Ignore warm-up exceptions
+                }
+            }));
         }
 
         private void OnLayoutsChanged()
@@ -221,7 +254,14 @@ namespace TypeFix
             return (Icon)SystemIcons.Application.Clone();
         }
 
-        private void ShowFromTray()
+        public void StartInTray()
+        {
+            ShowInTaskbar = false;
+            var helper = new WindowInteropHelper(this);
+            helper.EnsureHandle();
+        }
+
+        public void ShowFromTray()
         {
             Dispatcher.Invoke(() =>
             {
@@ -229,12 +269,18 @@ namespace TypeFix
                 Show();
                 if (WindowState == WindowState.Minimized)
                     WindowState = WindowState.Normal;
+                var helper = new WindowInteropHelper(this);
+                if (helper.Handle != IntPtr.Zero)
+                {
+                    ShowWindow(helper.Handle, SW_RESTORE);
+                    SetForegroundWindow(helper.Handle);
+                }
                 Activate();
                 Focus();
             });
         }
 
-        private void ExitApp()
+        public void ExitApp()
         {
             // Defer so the tray menu click finishes before the icon is disposed.
             Dispatcher.BeginInvoke(new Action(() =>
@@ -331,26 +377,10 @@ namespace TypeFix
             _snugHeightApplied = true;
             double gap = RailGap.ActualHeight;
             double fitted = ActualHeight - (gap > 0.5 ? gap : 0);
-            double extra = SettingsContentOverflow(gap);
             SizeToContent = SizeToContent.Manual;
-            Height = fitted + extra;
-            MinHeight = fitted + extra;
-        }
-
-        private double SettingsContentOverflow(double railGap)
-        {
-            double width = PagesHost.ActualWidth;
-            if (width < 1)
-                return 0;
-
-            // Match the page scroll viewer's right padding so wrapped lines measure the same.
-            SettingsBody.Measure(new System.Windows.Size(Math.Max(1, width - 4), double.PositiveInfinity));
-            double viewport = PagesHost.ActualHeight - (railGap > 0.5 ? railGap : 0);
-            double overflow = SettingsBody.DesiredSize.Height - viewport;
-            if (overflow < 1)
-                return 0;
-
-            return Math.Ceiling(overflow + 12);
+            double targetHeight = Math.Min(fitted, SystemParameters.WorkArea.Height);
+            Height = targetHeight;
+            MinHeight = targetHeight;
         }
 
         private void ResizeEdge_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -535,19 +565,26 @@ namespace TypeFix
         {
             base.OnSourceInitialized(e);
 
-            _hwndSource = (HwndSource)PresentationSource.FromVisual(this)!;
-            _hwndSource.AddHook(WndProc);
+            _hwndSource = (HwndSource?)PresentationSource.FromVisual(this)
+                          ?? HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
+            _hwndSource?.AddHook(WndProc);
 
-            var handle = _hwndSource.Handle;
-            bool ok = RegisterHotKey(handle, HOTKEY_ID, MOD_NONE, WF.Keys.F10);
-            if (!ok)
+            var handle = _hwndSource?.Handle ?? IntPtr.Zero;
+            if (handle != IntPtr.Zero)
             {
-                SetStatus(UiLanguage.Get("StatusHotkeyFailed"), isError: true);
+                bool ok = RegisterHotKey(handle, HOTKEY_ID, MOD_NONE, WF.Keys.F10);
+                if (!ok)
+                {
+                    SetStatus(UiLanguage.Get("StatusHotkeyFailed"), isError: true);
+                }
             }
         }
 
         protected override void OnClosed(EventArgs e)
         {
+            _updateCts.Cancel();
+            _updateCts.Dispose();
+
             if (_hwndSource != null)
             {
                 UnregisterHotKey(_hwndSource.Handle, HOTKEY_ID);
@@ -585,7 +622,7 @@ namespace TypeFix
 
         #region Core: selection processing
 
-        private const int ClipboardCopyTimeoutMs = 500;
+        private const int ClipboardCopyTimeoutMs = 1000;
         private const int ClipboardSetTimeoutMs = 300;
         private const int ClipboardPollMs = 20;
         private const int PasteSettleMs = 180;
@@ -697,25 +734,33 @@ namespace TypeFix
 
         private static string? TryGetClipboardText()
         {
-            try
+            for (int i = 0; i < 3; i++)
             {
-                return WF.Clipboard.ContainsText() ? WF.Clipboard.GetText() : null;
+                try
+                {
+                    return WF.Clipboard.ContainsText() ? WF.Clipboard.GetText() : null;
+                }
+                catch
+                {
+                    Thread.Sleep(5);
+                }
             }
-            catch
-            {
-                return null;
-            }
+            return null;
         }
 
         private static void TryClearClipboard()
         {
-            try
+            for (int i = 0; i < 3; i++)
             {
-                WF.Clipboard.Clear();
-            }
-            catch
-            {
-                // ignore
+                try
+                {
+                    WF.Clipboard.Clear();
+                    return;
+                }
+                catch
+                {
+                    Thread.Sleep(5);
+                }
             }
         }
 
@@ -902,6 +947,7 @@ namespace TypeFix
                 ? (System.Windows.Media.FontFamily)FindResource("PersianFont")
                 : new System.Windows.Media.FontFamily(UiLanguage.UiFontName);
             ContentRoot.FlowDirection = UiLanguage.Flow;
+            UpdateOverlay.FlowDirection = UiLanguage.Flow;
             ApplyTrayFont();
             MaximizeButton.ToolTip = UiLanguage.Get(_isPseudoMaximized ? "TooltipRestore" : "TooltipMaximize");
 
@@ -918,6 +964,8 @@ namespace TypeFix
             SettingsLayouts.Refresh();
             if (_trayIcon != null)
                 _trayIcon.Text = TrayTip(_catalog.Label(_catalog.Active));
+
+            RefreshUpdateUiForLanguage();
         }
 
         private void LanguageCombo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -932,6 +980,210 @@ namespace TypeFix
             SetStatus(UiLanguage.Get("StatusLanguageChanged"));
         }
 
+        #region Update Management
+
+        private async void ScheduleInitialUpdateCheck()
+        {
+            try
+            {
+                var token = _updateCts.Token;
+                await Task.Delay(3500, token);
+                var result = await UpdateService.CheckForUpdatesAsync(token);
+                if (!token.IsCancellationRequested && !_isCheckingUpdate && _lastUpdateResult == null)
+                    HandleUpdateResult(result, isManualCheck: false);
+            }
+            catch
+            {
+                // Never crash on startup/shutdown update checks
+            }
+        }
+
+        private async void CheckUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            if (_isCheckingUpdate)
+                return;
+
+            _isCheckingUpdate = true;
+            _updateModalDismissed = false;
+            SettingsCheckUpdateBtn.IsEnabled = false;
+            RailCheckUpdateBtn.IsEnabled = false;
+            UpdateStatusText.Visibility = Visibility.Visible;
+            UpdateStatusText.Foreground = (System.Windows.Media.Brush)FindResource("TextMutedBrush");
+            UpdateStatusText.Text = UiLanguage.Get("UpdateChecking");
+            SetStatus(UiLanguage.Get("UpdateChecking"));
+
+            try
+            {
+                var token = _updateCts.Token;
+                var result = await UpdateService.CheckForUpdatesAsync(token);
+                if (!token.IsCancellationRequested)
+                    HandleUpdateResult(result, isManualCheck: true);
+            }
+            catch
+            {
+                // Safe fallback; CheckForUpdatesAsync handles network errors internally
+            }
+            finally
+            {
+                _isCheckingUpdate = false;
+                SettingsCheckUpdateBtn.IsEnabled = true;
+                RailCheckUpdateBtn.IsEnabled = true;
+            }
+        }
+
+        private void HandleUpdateResult(UpdateCheckResult result, bool isManualCheck)
+        {
+            _lastUpdateResult = result;
+            _lastCheckWasManual = isManualCheck;
+
+            if (result.Status == UpdateStatus.MandatoryAvailable && result.Info != null)
+            {
+                ShowUpdateModal(result, isMandatory: true);
+                return;
+            }
+
+            if (result.Status == UpdateStatus.OptionalAvailable && result.Info != null)
+            {
+                string newVerStr = UpdateService.FormatVersion(result.NewVersion);
+                if (!_updateModalDismissed || isManualCheck)
+                    ShowUpdateModal(result, isMandatory: false);
+
+                SetStatus(UiLanguage.Format("UpdateAvailableBanner", newVerStr));
+                if (isManualCheck)
+                {
+                    UpdateStatusText.Visibility = Visibility.Visible;
+                    UpdateStatusText.Foreground = (System.Windows.Media.Brush)FindResource("AccentBrushLight");
+                    UpdateStatusText.Text = UiLanguage.Format("UpdateAvailableBanner", newVerStr);
+                }
+                return;
+            }
+
+            if (result.Status == UpdateStatus.UpToDate)
+            {
+                if (!_isMandatoryModalOpen)
+                    UpdateOverlay.Visibility = Visibility.Collapsed;
+                if (isManualCheck)
+                {
+                    string msg = UiLanguage.Format("UpdateUpToDate", UpdateService.CurrentVersionString);
+                    UpdateStatusText.Visibility = Visibility.Visible;
+                    UpdateStatusText.Foreground = (System.Windows.Media.Brush)FindResource("StatusOkBrush");
+                    UpdateStatusText.Text = msg;
+                    SetStatus(msg);
+                }
+                return;
+            }
+
+            if (result.Status == UpdateStatus.CheckFailed && isManualCheck)
+            {
+                string msg = UiLanguage.Get("UpdateFailed");
+                UpdateStatusText.Visibility = Visibility.Visible;
+                UpdateStatusText.Foreground = (System.Windows.Media.Brush)FindResource("StatusErrorBrush");
+                UpdateStatusText.Text = msg;
+                SetStatus(msg, isError: true);
+            }
+        }
+
+        private void RefreshUpdateUiForLanguage()
+        {
+            if (_lastUpdateResult == null)
+                return;
+
+            if (UpdateOverlay.Visibility == Visibility.Visible &&
+                (_lastUpdateResult.Status == UpdateStatus.MandatoryAvailable ||
+                 _lastUpdateResult.Status == UpdateStatus.OptionalAvailable))
+            {
+                ShowUpdateModal(_lastUpdateResult, isMandatory: _lastUpdateResult.Status == UpdateStatus.MandatoryAvailable);
+            }
+
+            if (UpdateStatusText.Visibility == Visibility.Visible && _lastCheckWasManual)
+            {
+                UpdateStatusText.Text = _lastUpdateResult.Status switch
+                {
+                    UpdateStatus.OptionalAvailable => UiLanguage.Format("UpdateAvailableBanner", UpdateService.FormatVersion(_lastUpdateResult.NewVersion)),
+                    UpdateStatus.UpToDate => UiLanguage.Format("UpdateUpToDate", UpdateService.CurrentVersionString),
+                    UpdateStatus.CheckFailed => UiLanguage.Get("UpdateFailed"),
+                    _ => UpdateStatusText.Text
+                };
+            }
+        }
+
+        /// <summary>Displays the update modal for optional (dismissible) or mandatory updates.</summary>
+        private void ShowUpdateModal(UpdateCheckResult result, bool isMandatory)
+        {
+            _isMandatoryModalOpen = isMandatory;
+            string newVerStr = UpdateService.FormatVersion(result.NewVersion);
+
+            if (isMandatory)
+            {
+                if (_hwndSource != null)
+                    UnregisterHotKey(_hwndSource.Handle, HOTKEY_ID);
+
+                ContentRoot.IsEnabled = false;
+                UpdateModalTitle.Text = UiLanguage.Get("UpdateMandatoryTitle");
+                UpdateModalNotice.Visibility = Visibility.Visible;
+                UpdateModalCloseBtn.Visibility = Visibility.Collapsed;
+                UpdateLaterBtn.Visibility = Visibility.Collapsed;
+                UpdateLaterCol.Width = new GridLength(0);
+                UpdateActionGapCol.Width = new GridLength(0);
+            }
+            else
+            {
+                ContentRoot.IsEnabled = true;
+                UpdateModalTitle.Text = UiLanguage.Format("UpdateAvailableBanner", newVerStr);
+                UpdateModalNotice.Visibility = Visibility.Collapsed;
+                UpdateModalCloseBtn.Visibility = Visibility.Visible;
+                UpdateLaterBtn.Visibility = Visibility.Visible;
+                UpdateLaterCol.Width = new GridLength(1, GridUnitType.Star);
+                UpdateActionGapCol.Width = new GridLength(12);
+            }
+
+            UpdateChangelogTitle.Text = UiLanguage.Format("UpdateChangelogTitle", newVerStr);
+
+            var changelog = result.Info?.GetChangelog(UiLanguage.Current);
+            var displayList = new System.Collections.Generic.List<string>();
+            if (changelog != null && changelog.Count > 0)
+            {
+                foreach (var item in changelog)
+                    displayList.Add($"•  {item}");
+            }
+            else
+            {
+                displayList.Add($"•  {UiLanguage.Format("UpdateAvailableBanner", newVerStr)}");
+            }
+            UpdateChangelogList.ItemsSource = displayList;
+
+            UpdateOverlay.FlowDirection = UiLanguage.Flow;
+            UpdateOverlay.Visibility = Visibility.Visible;
+
+            if (isMandatory && !IsVisible)
+                ShowFromTray();
+        }
+
+        private void DismissUpdateModal()
+        {
+            if (_isMandatoryModalOpen)
+                return;
+
+            _updateModalDismissed = true;
+            UpdateOverlay.Visibility = Visibility.Collapsed;
+        }
+
+        private void DismissUpdateModal_Click(object sender, RoutedEventArgs e)
+            => DismissUpdateModal();
+
+        private void UpdateOverlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.Source == UpdateOverlay)
+                DismissUpdateModal();
+        }
+
+        private void UpdateDownload_Click(object sender, RoutedEventArgs e)
+        {
+            string url = _lastUpdateResult?.Info?.DownloadUrl ?? UpdateService.DefaultDownloadUrl;
+            UpdateService.OpenDownloadPage(url);
+        }
+
+        #endregion
         #region Settings handlers
 
         private void StartupToggle_Changed(object sender, RoutedEventArgs e)
@@ -1120,6 +1372,7 @@ namespace TypeFix
     {
         private const string RunKeyPath = @"Software\Microsoft\Windows\CurrentVersion\Run";
         private const string AppName = "TypeFix";
+        public const string TrayArgument = "--tray";
 
         public static bool IsStartupEnabled()
         {
@@ -1144,12 +1397,39 @@ namespace TypeFix
 
                 if (enabled)
                 {
-                    string exePath = Process.GetCurrentProcess().MainModule!.FileName!;
-                    key.SetValue(AppName, $"\"{exePath}\"");
+                    string exePath = Process.GetCurrentProcess().MainModule?.FileName ?? Environment.ProcessPath ?? "";
+                    if (!string.IsNullOrEmpty(exePath))
+                    {
+                        key.SetValue(AppName, $"\"{exePath}\" {TrayArgument}");
+                    }
                 }
                 else
                 {
                     key.DeleteValue(AppName, false);
+                }
+            }
+            catch
+            {
+                // ignore
+            }
+        }
+
+        public static void EnsureStartupUpdatedIfEnabled()
+        {
+            try
+            {
+                using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath, true);
+                if (key?.GetValue(AppName) is string value && !string.IsNullOrEmpty(value))
+                {
+                    string exePath = Process.GetCurrentProcess().MainModule?.FileName ?? Environment.ProcessPath ?? "";
+                    if (!string.IsNullOrEmpty(exePath))
+                    {
+                        string expected = $"\"{exePath}\" {TrayArgument}";
+                        if (!string.Equals(value.Trim(), expected, StringComparison.OrdinalIgnoreCase))
+                        {
+                            key.SetValue(AppName, expected);
+                        }
+                    }
                 }
             }
             catch

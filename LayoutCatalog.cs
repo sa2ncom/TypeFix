@@ -36,7 +36,8 @@ namespace TypeFix
             ("TypeFix.Layouts.en-es.json", "en-es", "Español ↔ English"),
             ("TypeFix.Layouts.en-tr.json", "en-tr", "Türkçe ↔ English"),
             ("TypeFix.Layouts.en-zh.json", "en-zh", "中文 ↔ English"),
-            ("TypeFix.Layouts.en-ko.json", "en-ko", "한국어 ↔ English")
+            ("TypeFix.Layouts.en-ko.json", "en-ko", "한국어 ↔ English"),
+            ("TypeFix.Layouts.en-hi.json", "en-hi", "हिन्दी ↔ English")
         ];
 
         private static readonly JsonSerializerOptions JsonOptions = new()

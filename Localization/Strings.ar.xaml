@@ -35,7 +35,7 @@
     <sys:String x:Key="AboutStep2Title">٢  اضغط F10</sys:String>
     <sys:String x:Key="AboutStep2Body">ينسخ TypeFix التحديد ويحوّله ثم يلصقه من جديد.</sys:String>
     <sys:String x:Key="AboutStep3Title">٣  أزواج التخطيط</sys:String>
-    <sys:String x:Key="AboutStep3Body">الأزواج المضمّنة، كل منها مع English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. واحد فقط يعمل. الدليل أدناه لإضافة لغة أخرى.</sys:String>
+    <sys:String x:Key="AboutStep3Body">الأزواج المضمّنة، كل منها مع English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어، हिन्दी. واحد فقط يعمل. الدليل أدناه لإضافة لغة أخرى.</sys:String>
     <sys:String x:Key="AboutGuideTitle">إنشاء ملف لغة</sys:String>
     <sys:String x:Key="AboutGuideBody" xml:space="preserve">كل لغة ملف JSON واحد. حقل Name هو الاسم الذي يظهر في القائمة.
 
@@ -124,4 +124,17 @@
     <sys:String x:Key="StatusWebsiteCopied">نُسخ رابط الموقع.</sys:String>
     <sys:String x:Key="StatusGitHubCopied">نُسخ رابط GitHub.</sys:String>
     <sys:String x:Key="StatusLanguageChanged">صارت لغة التطبيق العربية.</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">يتضمن هذا التحديث تحسينات مهمة. يرجى التحديث لمتابعة الاستخدام.</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">التحقق من وجود تحديث</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">التحقق من الإصدارات الجديدة والتحسينات.</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">تحديثات البرنامج</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">تنزيل التحديث</sys:String>
+    <sys:String x:Key="UpdateClose">إغلاق</sys:String>
+    <sys:String x:Key="UpdateChecking">جارٍ التحقق من وجود تحديثات...</sys:String>
+    <sys:String x:Key="UpdateFailed">تعذر التحقق من التحديثات. يرجى التحقق من اتصال الإنترنت.</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">يتوفر إصدار جديد من TypeFix ({0})!</sys:String>
+    <sys:String x:Key="UpdateUpToDate">أنت تستخدم أحدث إصدار من TypeFix ({0}).</sys:String>
+    <sys:String x:Key="UpdateRemindLater">تذكيري لاحقًا</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">تحديث إلزامي مطلوب</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">ما الجديد في الإصدار {0}:</sys:String>
 </ResourceDictionary>

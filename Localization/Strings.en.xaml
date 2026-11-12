@@ -35,7 +35,7 @@
     <sys:String x:Key="AboutStep2Title">2  Press F10</sys:String>
     <sys:String x:Key="AboutStep2Body">TypeFix copies the selection, maps it, and pastes it back.</sys:String>
     <sys:String x:Key="AboutStep3Title">3  Layout pairs</sys:String>
-    <sys:String x:Key="AboutStep3Body">Built-in pairs, each with English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Only the selected one is on. The guide below is for adding another language.</sys:String>
+    <sys:String x:Key="AboutStep3Body">Built-in pairs, each with English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어، हिन्दी. Only the selected one is on. The guide below is for adding another language.</sys:String>
     <sys:String x:Key="AboutGuideTitle">Make a language file</sys:String>
     <sys:String x:Key="AboutGuideBody" xml:space="preserve">Each language is one JSON file. The Name field is what you see in the list.
 
@@ -124,4 +124,17 @@ The box below is a full starter. Layout2Chars still matches English, so F10 woul
     <sys:String x:Key="StatusWebsiteCopied">Website link copied.</sys:String>
     <sys:String x:Key="StatusGitHubCopied">GitHub link copied.</sys:String>
     <sys:String x:Key="StatusLanguageChanged">App language set to English.</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">This update includes critical improvements. Please update to continue using TypeFix.</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">Check for Updates</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">Check for new versions and improvements.</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">Application Updates</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">Download Update</sys:String>
+    <sys:String x:Key="UpdateClose">Close</sys:String>
+    <sys:String x:Key="UpdateChecking">Checking for updates...</sys:String>
+    <sys:String x:Key="UpdateFailed">Could not check for updates. Check internet connection.</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">TypeFix {0} is available!</sys:String>
+    <sys:String x:Key="UpdateUpToDate">TypeFix is up to date ({0}).</sys:String>
+    <sys:String x:Key="UpdateRemindLater">Remind me later</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">Important Update Required</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">What's new in version {0}:</sys:String>
 </ResourceDictionary>

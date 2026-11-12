@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:TypeFix"
         Title="TypeFix"
         Width="1080"
-        Height="760"
+        Height="600"
         MinWidth="980"
         SizeToContent="Height"
         WindowStartupLocation="CenterScreen"
@@ -556,7 +556,7 @@
                                         BorderThickness="1"
                                         CornerRadius="12"
                                         Padding="14,12"
-                                        Margin="0,0,0,20">
+                                        Margin="0,0,0,10">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
@@ -591,6 +591,56 @@
                                                       VerticalAlignment="Center"
                                                       Checked="StartupToggle_Changed"
                                                       Unchecked="StartupToggle_Changed"/>
+                                    </Grid>
+                                </Border>
+
+                                <Border Background="{DynamicResource CardBackgroundBrush}"
+                                        BorderBrush="{DynamicResource CardBorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="14,12"
+                                        Margin="0,0,0,20">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Width="40" Height="40" CornerRadius="10"
+                                                Background="#132338" VerticalAlignment="Center">
+                                            <TextBlock Text="&#xE895;"
+                                                       FontFamily="Segoe MDL2 Assets"
+                                                       FontSize="17"
+                                                       Foreground="{DynamicResource AccentBrushLight}"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
+                                        <StackPanel Grid.Column="1" Margin="12,0,12,0" VerticalAlignment="Center">
+                                            <TextBlock Text="{DynamicResource SettingsUpdateTitle}"
+                                                       FontWeight="SemiBold"
+                                                       FontSize="13.5"
+                                                       TextWrapping="Wrap"/>
+                                            <TextBlock Text="{DynamicResource SettingsUpdateBody}"
+                                                       Foreground="{DynamicResource TextSecondaryBrush}"
+                                                       FontSize="12"
+                                                       TextWrapping="Wrap"
+                                                       Margin="0,3,0,0"/>
+                                            <TextBlock x:Name="UpdateStatusText"
+                                                       FontSize="11.5"
+                                                       Foreground="{DynamicResource TextMutedBrush}"
+                                                       Margin="0,4,0,0"
+                                                       Visibility="Collapsed"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                        <Button x:Name="SettingsCheckUpdateBtn"
+                                                Grid.Column="2"
+                                                Style="{StaticResource SecondaryButton}"
+                                                MinHeight="36"
+                                                MinWidth="136"
+                                                Padding="12,0"
+                                                VerticalAlignment="Center"
+                                                Content="{DynamicResource SettingsCheckUpdateBtn}"
+                                                Click="CheckUpdate_Click"/>
                                     </Grid>
                                 </Border>
 
@@ -811,10 +861,25 @@
                                        Foreground="{DynamicResource TextSecondaryBrush}"
                                        Margin="0,2,0,8"/>
                             
-                            <TextBlock x:Name="VersionText"
-                                        Text="v1.0.0"
-                                        FontSize="11"
-                                        Foreground="{DynamicResource TextSecondaryBrush}"/>
+                            <Grid Margin="0,2,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="VersionText"
+                                           Text="v1.0.1"
+                                           FontSize="11"
+                                           VerticalAlignment="Center"
+                                           Foreground="{DynamicResource TextSecondaryBrush}"/>
+                                <Button x:Name="RailCheckUpdateBtn"
+                                        Grid.Column="1"
+                                        Style="{StaticResource LinkButton}"
+                                        HorizontalAlignment="Right"
+                                        FontSize="11.5"
+                                        Margin="8,0,0,0"
+                                        Content="{DynamicResource SettingsCheckUpdateBtn}"
+                                        Click="CheckUpdate_Click"/>
+                            </Grid>
                         </StackPanel>
                     </Border>
 
@@ -856,7 +921,8 @@
                             BorderBrush="{DynamicResource CardBorderBrush}"
                             BorderThickness="1"
                             CornerRadius="14"
-                            Padding="14,12">
+                            Padding="14,12"
+                            Margin="0,0,0,10">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                                 <TextBlock Text="&#xE71B;"
@@ -1002,6 +1068,126 @@
                     </Button>
                 </Grid>
             </Grid>
+
+            <!-- Update Overlay Modal (Optional & Mandatory) -->
+            <Border x:Name="UpdateOverlay"
+                    Grid.Row="1"
+                    CornerRadius="0,0,15,15"
+                    Background="#D9050A14"
+                    Visibility="Collapsed"
+                    Panel.ZIndex="100"
+                    MouseLeftButtonDown="UpdateOverlay_MouseLeftButtonDown">
+                <Border Width="480"
+                        Background="{DynamicResource CardElevatedBrush}"
+                        BorderBrush="#3B537A"
+                        BorderThickness="1"
+                        CornerRadius="16"
+                        Padding="28,24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="32" ShadowDepth="10" Opacity="0.65" Color="#000000"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Button x:Name="UpdateModalCloseBtn"
+                                Style="{StaticResource IconButton}"
+                                Width="30"
+                                Height="30"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Margin="0,-8,-8,0"
+                                Panel.ZIndex="1"
+                                ToolTip="{DynamicResource UpdateClose}"
+                                Click="DismissUpdateModal_Click">
+                            <TextBlock Text="&#xE8BB;"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       FontSize="11"/>
+                        </Button>
+
+                        <StackPanel>
+                            <Border Width="48" Height="48" CornerRadius="12" Background="#1E3A66" HorizontalAlignment="Center" Margin="0,0,0,14">
+                                <TextBlock Text="&#xE896;"
+                                           FontFamily="Segoe MDL2 Assets"
+                                           FontSize="22"
+                                           Foreground="{DynamicResource AccentBrushLight}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+
+                            <TextBlock x:Name="UpdateModalTitle"
+                                       FontSize="17"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,0,8"/>
+
+                            <TextBlock x:Name="UpdateModalNotice"
+                                       Text="{DynamicResource UpdateMandatoryNotice}"
+                                       FontSize="12.5"
+                                       Foreground="{DynamicResource TextSecondaryBrush}"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"
+                                       LineHeight="18"
+                                       Margin="0,0,0,16"/>
+
+                            <Border Background="{DynamicResource InputBackgroundBrush}"
+                                    BorderBrush="{DynamicResource CardBorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="10"
+                                    Padding="14,10"
+                                    Margin="0,0,0,20">
+                                <StackPanel>
+                                    <TextBlock x:Name="UpdateChangelogTitle"
+                                               FontWeight="SemiBold"
+                                               FontSize="12"
+                                               Foreground="{DynamicResource TextPrimaryBrush}"
+                                               Margin="0,0,0,6"/>
+                                    <ScrollViewer MaxHeight="180" VerticalScrollBarVisibility="Auto">
+                                        <ItemsControl x:Name="UpdateChangelogList">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding}"
+                                                               Foreground="{DynamicResource TextSecondaryBrush}"
+                                                               FontSize="12"
+                                                               Margin="0,2"
+                                                               TextWrapping="Wrap"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ScrollViewer>
+                                </StackPanel>
+                            </Border>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="UpdateLaterCol" Width="*"/>
+                                    <ColumnDefinition x:Name="UpdateActionGapCol" Width="12"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button x:Name="UpdateLaterBtn"
+                                        Grid.Column="0"
+                                        Style="{StaticResource SecondaryButton}"
+                                        MinHeight="44"
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Content="{DynamicResource UpdateRemindLater}"
+                                        Click="DismissUpdateModal_Click"/>
+
+                                <Button x:Name="UpdateDownloadBtn"
+                                        Grid.Column="2"
+                                        Style="{StaticResource PrimaryButton}"
+                                        MinHeight="44"
+                                        FontSize="13.5"
+                                        FontWeight="SemiBold"
+                                        Content="{DynamicResource UpdateDownloadBtn}"
+                                        Click="UpdateDownload_Click"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Border>
         </Grid>
     </Border>
 

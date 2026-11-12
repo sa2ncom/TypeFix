@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -8,9 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <ApplicationIcon>TypeFix.ico</ApplicationIcon>
-    <Version>1.0.0</Version>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
     <Company>sa2ncom</Company>
     <Product>TypeFix</Product>
     <Authors>sa2ncom</Authors>
@@ -52,6 +52,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layouts\en-ko.json">
       <LogicalName>TypeFix.Layouts.en-ko.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layouts\en-hi.json">
+      <LogicalName>TypeFix.Layouts.en-hi.json</LogicalName>
     </EmbeddedResource>
     <Content Include="TypeFix.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

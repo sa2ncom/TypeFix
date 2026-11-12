@@ -35,7 +35,7 @@
     <sys:String x:Key="AboutStep2Title">2  Appuyez sur F10</sys:String>
     <sys:String x:Key="AboutStep2Body">TypeFix copie la sélection, la convertit et la colle.</sys:String>
     <sys:String x:Key="AboutStep3Title">3  Paires de dispositions</sys:String>
-    <sys:String x:Key="AboutStep3Body">Paires incluses, chacune avec English : فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Une seule est active. Le guide ci-dessous sert à en ajouter une autre.</sys:String>
+    <sys:String x:Key="AboutStep3Body">Paires incluses, chacune avec English : فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어، हिन्दी. Une seule est active. Le guide ci-dessous sert à en ajouter une autre.</sys:String>
     <sys:String x:Key="AboutGuideTitle">Créer un fichier de langue</sys:String>
     <sys:String x:Key="AboutGuideBody" xml:space="preserve">Chaque langue est un fichier JSON. Le champ Name est le nom affiché dans la liste.
 
@@ -124,4 +124,17 @@ La zone ci-dessous est un modèle complet. Layout2Chars est encore en anglais, d
     <sys:String x:Key="StatusWebsiteCopied">Lien du site copié.</sys:String>
     <sys:String x:Key="StatusGitHubCopied">Lien GitHub copié.</sys:String>
     <sys:String x:Key="StatusLanguageChanged">Langue de l’application : français.</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">Cette mise à jour inclut des améliorations critiques. Veuillez mettre à jour pour continuer.</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">Vérifier les mises à jour</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">Vérifier les nouvelles versions et améliorations.</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">Mises à jour de l'application</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">Télécharger la mise à jour</sys:String>
+    <sys:String x:Key="UpdateClose">Fermer</sys:String>
+    <sys:String x:Key="UpdateChecking">Vérification des mises à jour...</sys:String>
+    <sys:String x:Key="UpdateFailed">Impossible de vérifier les mises à jour. Vérifiez votre connexion.</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">TypeFix {0} est disponible !</sys:String>
+    <sys:String x:Key="UpdateUpToDate">TypeFix est à jour ({0}).</sys:String>
+    <sys:String x:Key="UpdateRemindLater">Me le rappeler plus tard</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">Mise à jour obligatoire requise</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">Nouveautés de la version {0} :</sys:String>
 </ResourceDictionary>

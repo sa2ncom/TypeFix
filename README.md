@@ -30,8 +30,8 @@ Closing the window hides TypeFix in the tray. It keeps running until you right-c
 - Automatic direction detection between layout pairs
 - English ↔ Persian (ISIRI 9147), including Shift characters such as `ژ`, `آ`, `ئ`, ZWNJ, and `؟`
 - Arabic letter normalization (`ي` → `ی`, `ك` → `ک`) on the Persian layout, so scoring stays consistent
-- Built-in pairs with English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文 (Zhuyin)، 한국어. Only the selected layout is active, and F10 uses that one
-- Interface languages: English, فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, 한국어
+- Built-in pairs with English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文 (Zhuyin)، 한국어، हिन्दी. Only the selected layout is active, and F10 uses that one
+- Interface languages: English, فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, 한국어, हिन्दी
 - Import more pairs as JSON
 - Export every installed layout to a zip file
 - Run at Windows sign-in (current user)
@@ -91,7 +91,7 @@ After it starts:
 2. Press **F10**.
 3. If F10 is already taken, the status line reports that the hotkey could not be registered. Close the other app and restart TypeFix.
 
-**Run at startup:** open the app, go to **General**, and turn on **Run TypeFix automatically on Windows startup**. This writes a value under `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`.
+**Run at startup:** enabled by default when installed with the setup installer. On Windows startup, TypeFix starts in the background minimized to the system tray without opening the main window. You can also turn it on or off anytime under **General** > **Run TypeFix automatically on Windows startup** (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`).
 
 ### Publish (deploy)
 
@@ -147,11 +147,11 @@ Output:
 
 | File | Installs on |
 |---|---|
-| `installer\output\TypeFix-1.0.0-Setup-x64.exe` | 64-bit Windows |
-| `installer\output\TypeFix-1.0.0-Setup-x86.exe` | 32-bit Windows (also runs on 64-bit Windows as a 32-bit app) |
-| `installer\output\TypeFix-1.0.0-Setup-arm64.exe` | Windows on ARM |
+| `installer\output\TypeFix-1.0.1-Setup-x64.exe` | 64-bit Windows |
+| `installer\output\TypeFix-1.0.1-Setup-x86.exe` | 32-bit Windows (also runs on 64-bit Windows as a 32-bit app) |
+| `installer\output\TypeFix-1.0.1-Setup-arm64.exe` | Windows on ARM |
 
-Running that setup installs TypeFix for the current user in `%LOCALAPPDATA%\Programs\TypeFix`, adds a Start menu shortcut, and registers an uninstall entry in **Settings → Apps**. The setup wizard offers the same languages as the app: English, فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, and 한국어. On the last page, **Create a desktop shortcut** and **Launch TypeFix** are both checked by default. A silent install does both unless you pass `/NODESKTOPICON` or `/NOLAUNCH`.
+Running that setup installs TypeFix for the current user in `%LOCALAPPDATA%\Programs\TypeFix`, adds a Start menu shortcut, and registers an uninstall entry in **Settings → Apps**. The setup wizard offers the same languages as the app: English, فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, 한국어, and हिन्दी. On the last page, **Create a desktop shortcut** and **Launch TypeFix** are both checked by default. A silent install does both unless you pass `/NODESKTOPICON` or `/NOLAUNCH`.
 
 To install for yourself without the setup program, copy the publish folder anywhere (for example `%LOCALAPPDATA%\TypeFix`) and run `TypeFix.exe`. Enable startup from **General** after you place the exe in its final folder, so Windows launches that path.
 
@@ -313,8 +313,8 @@ TypeFix یک برنامهٔ کوچک دسکتاپ برای ویندوز است. 
 - تشخیص خودکار جهت تبدیل بین جفت‌چیدمان‌ها
 - انگلیسی ↔ فارسی (استاندارد ISIRI 9147)، به‌همراه لایهٔ Shift مثل `ژ`، `آ`، `ئ`، نیم‌فاصله و `؟`
 - یکسان‌سازی حروف عربی (`ي` به `ی` و `ك` به `ک`) فقط در چیدمان فارسی، تا تشخیص جهت به‌هم نریزد
-- جفت‌های داخلی با English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文 (注音)، 한국어. فقط چیدمان انتخاب‌شده روشن است و F10 همان را به کار می‌برد
-- زبان رابط: English، فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어
+- جفت‌های داخلی با English: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文 (注音)، 한국어، हिन्दी. فقط چیدمان انتخاب‌شده روشن است و F10 همان را به کار می‌برد
+- زبان رابط: English، فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어، हिन्दी
 - وارد کردن جفت‌های دیگر با فایل JSON
 - خروجی گرفتن از همهٔ چیدمان‌های نصب‌شده در یک فایل zip
 - اجرا هنگام ورود به ویندوز (کاربر جاری)
@@ -390,7 +390,7 @@ dotnet run -c Release
 ۲. **F10** را بزنید.
 ۳. اگر F10 از قبل گرفته شده باشد، نوار وضعیت می‌گوید میانبر ثبت نشده است. برنامهٔ دیگر را ببندید و TypeFix را دوباره اجرا کنید.
 
-**اجرا هنگام روشن شدن ویندوز:** برنامه را باز کنید، به **General** بروید و گزینهٔ **Run TypeFix automatically on Windows startup** را روشن کنید. این کار یک مقدار در `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` می‌نویسد.
+**اجرا هنگام روشن شدن ویندوز:** هنگام نصب با فایل نصبی، به طور پیش‌فرض فعال است. هنگام بالا آمدن ویندوز، TypeFix در پس‌زمینه و داخل سینی سیستم (tray) اجرا می‌شود بدون این‌که پنجرهٔ اصلی باز شود. همچنین می‌توانید در هر زمان از بخش **General** گزینهٔ **Run TypeFix automatically on Windows startup** را روشن یا خاموش کنید (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`).
 
 ### انتشار (استقرار)
 
@@ -458,11 +458,11 @@ foreach ($r in 'win-x64','win-x86','win-arm64') { dotnet publish .\TypeFix.cspro
 
 | فایل | نصب روی |
 |---|---|
-| `installer\output\TypeFix-1.0.0-Setup-x64.exe` | ویندوز ۶۴بیتی |
-| `installer\output\TypeFix-1.0.0-Setup-x86.exe` | ویندوز ۳۲بیتی (روی ویندوز ۶۴بیتی هم به‌صورت برنامهٔ ۳۲بیتی اجرا می‌شود) |
-| `installer\output\TypeFix-1.0.0-Setup-arm64.exe` | ویندوز روی پردازندهٔ ARM |
+| `installer\output\TypeFix-1.0.1-Setup-x64.exe` | ویندوز ۶۴بیتی |
+| `installer\output\TypeFix-1.0.1-Setup-x86.exe` | ویندوز ۳۲بیتی (روی ویندوز ۶۴بیتی هم به‌صورت برنامهٔ ۳۲بیتی اجرا می‌شود) |
+| `installer\output\TypeFix-1.0.1-Setup-arm64.exe` | ویندوز روی پردازندهٔ ARM |
 
-اجرای این فایل، TypeFix را برای کاربر جاری در `%LOCALAPPDATA%\Programs\TypeFix` نصب می‌کند، میانبر منوی استارت می‌سازد، و حذف برنامه را در **Settings → Apps** ثبت می‌کند. زبان‌های نصب همان زبان‌های برنامه است: English، فارسی، العربية، Français، Italiano، Español، Türkçe، 中文 و 한국어. در صفحهٔ پایانی، **ساخت میانبر روی دسکتاپ** و **اجرای TypeFix** هر دو به‌طور پیش‌فرض تیک خورده‌اند. نصب بی‌صدا هم هر دو را انجام می‌دهد، مگر اینکه `/NODESKTOPICON` یا `/NOLAUNCH` را بدهید.
+اجرای این فایل، TypeFix را برای کاربر جاری در `%LOCALAPPDATA%\Programs\TypeFix` نصب می‌کند، میانبر منوی استارت می‌سازد، و حذف برنامه را در **Settings → Apps** ثبت می‌کند. زبان‌های نصب همان زبان‌های برنامه است: English، فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어 و हिन्दी. در صفحهٔ پایانی، **ساخت میانبر روی دسکتاپ** و **اجرای TypeFix** هر دو به‌طور پیش‌فرض تیک خورده‌اند. نصب بی‌صدا هم هر دو را انجام می‌دهد، مگر اینکه `/NODESKTOPICON` یا `/NOLAUNCH` را بدهید.
 
 برای نصب بدون برنامهٔ نصب، پوشهٔ انتشار را هر جا خواستید کپی کنید (مثلاً `%LOCALAPPDATA%\TypeFix`) و `TypeFix.exe` را اجرا کنید. گزینهٔ اجرا هنگام ورود را بعد از قرار دادن فایل در مسیر نهایی روشن کنید تا ویندوز همان مسیر را باز کند.
 

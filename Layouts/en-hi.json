@@ -1,0 +1,16 @@
+{
+  "Id": "en-hi",
+  "Name": "हिन्दी ↔ English",
+  "LayoutPairs": [
+    {
+      "Name": "English-Hindi",
+      "Id": "en-hi",
+      "Layout1Name": "English",
+      "Layout2Name": "हिन्दी",
+      "Layout1Chars": "qwertyuiop[]asdfghjkl;'zxcvbnm,./",
+      "Layout1ShiftChars": "QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>?",
+      "Layout2Chars": "ौैाीूबहगदजड़ोे्िुपरकतचटॆंमनवलस,.य",
+      "Layout2ShiftChars": "औऐआईऊभङघधझढञओएअइउफऱखथछठऎँणऩऴळशष।य़"
+    }
+  ]
+}

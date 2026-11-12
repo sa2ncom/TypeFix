@@ -35,7 +35,7 @@
     <sys:String x:Key="AboutStep2Title">2  F10’a basın</sys:String>
     <sys:String x:Key="AboutStep2Body">TypeFix seçimi kopyalar, dönüştürür ve yapıştırır.</sys:String>
     <sys:String x:Key="AboutStep3Title">3  Düzen çiftleri</sys:String>
-    <sys:String x:Key="AboutStep3Body">Hazır çiftler, her biri English ile: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어. Yalnızca biri etkindir. Aşağıdaki kılavuz başka bir dil eklemek içindir.</sys:String>
+    <sys:String x:Key="AboutStep3Body">Hazır çiftler, her biri English ile: فارسی، العربية، Français، Italiano، Español، Türkçe، 中文، 한국어، हिन्दी. Yalnızca biri etkindir. Aşağıdaki kılavuz başka bir dil eklemek içindir.</sys:String>
     <sys:String x:Key="AboutGuideTitle">Dil dosyası oluşturma</sys:String>
     <sys:String x:Key="AboutGuideBody" xml:space="preserve">Her dil bir JSON dosyasıdır. Name alanı listede görünen addır.
 
@@ -124,4 +124,17 @@ Aşağıdaki kutu tam bir şablondur. Layout2Chars hâlâ İngilizcedir; bu kara
     <sys:String x:Key="StatusWebsiteCopied">Web sitesi bağlantısı kopyalandı.</sys:String>
     <sys:String x:Key="StatusGitHubCopied">GitHub bağlantısı kopyalandı.</sys:String>
     <sys:String x:Key="StatusLanguageChanged">Uygulama dili Türkçe oldu.</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">Bu güncelleme kritik iyileştirmeler içerir. Lütfen devam etmek için güncelleyin.</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">Güncellemeleri Denetle</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">Yeni sürümleri ve iyileştirmeleri kontrol edin.</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">Uygulama Güncellemeleri</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">Güncellemeyi İndir</sys:String>
+    <sys:String x:Key="UpdateClose">Kapat</sys:String>
+    <sys:String x:Key="UpdateChecking">Güncellemeler denetleniyor...</sys:String>
+    <sys:String x:Key="UpdateFailed">Güncellemeler kontrol edilemedi. İnternet bağlantınızı kontrol edin.</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">TypeFix {0} kullanıma hazır!</sys:String>
+    <sys:String x:Key="UpdateUpToDate">TypeFix güncel ({0}).</sys:String>
+    <sys:String x:Key="UpdateRemindLater">Daha sonra hatırlat</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">Zorunlu Güncelleme Gerekli</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">{0} sürümündeki yenilikler:</sys:String>
 </ResourceDictionary>

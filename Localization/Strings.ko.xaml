@@ -35,7 +35,7 @@
     <sys:String x:Key="AboutStep2Title">2  F10을 누름</sys:String>
     <sys:String x:Key="AboutStep2Body">TypeFix가 선택 영역을 복사해 변환한 뒤 다시 붙여 넣습니다.</sys:String>
     <sys:String x:Key="AboutStep3Title">3  배열 쌍</sys:String>
-    <sys:String x:Key="AboutStep3Body">기본 쌍은 모두 English와 짝입니다: فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, 한국어. 한 가지만 켜집니다. 아래 안내로 다른 언어를 추가할 수 있습니다.</sys:String>
+    <sys:String x:Key="AboutStep3Body">기본 쌍은 모두 English와 짝입니다: فارسی, العربية, Français, Italiano, Español, Türkçe, 中文, 한국어, हिन्दी. 한 가지만 켜집니다. 아래 안내로 다른 언어를 추가할 수 있습니다.</sys:String>
     <sys:String x:Key="AboutGuideTitle">언어 파일 만들기</sys:String>
     <sys:String x:Key="AboutGuideBody" xml:space="preserve">언어마다 JSON 파일 하나입니다. Name 칸이 목록에 보이는 이름입니다.
 
@@ -124,4 +124,17 @@
     <sys:String x:Key="StatusWebsiteCopied">웹사이트 링크를 복사했습니다.</sys:String>
     <sys:String x:Key="StatusGitHubCopied">GitHub 링크를 복사했습니다.</sys:String>
     <sys:String x:Key="StatusLanguageChanged">앱 언어가 한국어로 바뀌었습니다.</sys:String>
+    <sys:String x:Key="UpdateMandatoryNotice">이 업데이트에는 중요한 개선 사항이 포함되어 있습니다. 계속 사용하려면 업데이트하세요.</sys:String>
+    <sys:String x:Key="SettingsCheckUpdateBtn">업데이트 확인</sys:String>
+    <sys:String x:Key="SettingsUpdateBody">새로운 버전과 개선 사항을 확인합니다.</sys:String>
+    <sys:String x:Key="SettingsUpdateTitle">애플리케이션 업데이트</sys:String>
+    <sys:String x:Key="UpdateDownloadBtn">업데이트 다운로드</sys:String>
+    <sys:String x:Key="UpdateClose">닫기</sys:String>
+    <sys:String x:Key="UpdateChecking">업데이트 확인 중...</sys:String>
+    <sys:String x:Key="UpdateFailed">업데이트를 확인할 수 없습니다. 인터넷 연결을 확인하세요.</sys:String>
+    <sys:String x:Key="UpdateAvailableBanner">TypeFix {0} 버전을 사용할 수 있습니다!</sys:String>
+    <sys:String x:Key="UpdateUpToDate">TypeFix가 최신 버전입니다 ({0}).</sys:String>
+    <sys:String x:Key="UpdateRemindLater">나중에 알림</sys:String>
+    <sys:String x:Key="UpdateMandatoryTitle">필수 업데이트 필요</sys:String>
+    <sys:String x:Key="UpdateChangelogTitle">{0} 버전의 새로운 기능:</sys:String>
 </ResourceDictionary>

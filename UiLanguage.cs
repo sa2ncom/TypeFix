@@ -23,10 +23,11 @@ namespace TypeFix
         public const string Turkish = "tr";
         public const string Chinese = "zh";
         public const string Korean = "ko";
+        public const string Hindi = "hi";
 
         private static readonly string[] Known =
         [
-            English, Persian, Arabic, French, Italian, Spanish, Turkish, Chinese, Korean
+            English, Persian, Arabic, French, Italian, Spanish, Turkish, Chinese, Korean, Hindi
         ];
 
         public static IReadOnlyList<LanguageOption> Options { get; } =
@@ -39,7 +40,8 @@ namespace TypeFix
             new LanguageOption { Code = Spanish, NativeName = "Español" },
             new LanguageOption { Code = Turkish, NativeName = "Türkçe" },
             new LanguageOption { Code = Chinese, NativeName = "中文" },
-            new LanguageOption { Code = Korean, NativeName = "한국어" }
+            new LanguageOption { Code = Korean, NativeName = "한국어" },
+            new LanguageOption { Code = Hindi, NativeName = "हिन्दी" }
         ];
 
         public static string Current { get; private set; } = English;
@@ -52,6 +54,7 @@ namespace TypeFix
         {
             Chinese => "Microsoft YaHei UI, Microsoft YaHei, Segoe UI",
             Korean => "Malgun Gothic, Segoe UI",
+            Hindi => "Nirmala UI, Segoe UI",
             _ => "Segoe UI"
         };
 
